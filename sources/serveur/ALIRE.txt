@@ -1,0 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ALIRE.txt                                          :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: garm <garm@student.42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2014/06/07 03:45:17 by garm              #+#    #+#              #
+#    Updated: 2014/06/07 03:47:45 by garm             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+gdefrait a presque termine la partie serveur. Il faudrait lui mettre les droits
+sur le github, on ne touche plus a la branche serveur avant que le code
+de gdefrait ne soit upload sur la branche.
+
+npineau si tu passes paer la, ajoutes gdefraiteur aux contributors sur github.
+Merci ^^.
+
