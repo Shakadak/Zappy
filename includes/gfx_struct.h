@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/06 19:42:26 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/07 16:15:27 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # define HEIGHT 1080
 # define MAP_X 100
 # define MAP_Y 100
-# define TILE_H 50
-# define TILE_W 50
+# define TILE_W 40
+# define TILE_H 40
 # define MAP_W (MAP_X * TILE_W)
 # define MAP_H (MAP_Y * TILE_H)
 # define KEY_ESC 27
@@ -38,8 +38,9 @@
 typedef struct		s_sdl
 {
 	SDL_Window		*win;
-	SDL_Renderer	*screen;
-	SDL_Texture		*view;
+	SDL_Renderer	*render;
+	SDL_Texture		*board;
+	SDL_Texture		*tiles;
 }					t_sdl;
 
 typedef struct		s_player

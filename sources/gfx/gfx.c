@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/06 19:11:49 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/07 15:04:42 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	gfx_core(t_env *gfx)
 	while (!quit)
 	{
 		event_listener(&ev, &quit, gfx);
-		SDL_RenderClear(gfx->e.screen);
+		SDL_RenderClear(gfx->e.render);
 		move_camera(gfx);
 		draw_board(gfx);
-		SDL_RenderPresent(gfx->e.screen);
+		SDL_RenderPresent(gfx->e.render);
 	}
 	return (0);
 }
