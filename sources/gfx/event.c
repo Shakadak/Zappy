@@ -6,14 +6,14 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:51 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/07 16:12:57 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/07 16:24:09 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gfx.h"
 
 void	mouse_check_y(t_env *gfx, int y)
-{	
+{
 	if (y < 150)
 	{
 		gfx->scroll[0] = 1;
@@ -86,7 +86,7 @@ void	click_event(t_env *gfx)
 	printf("%d - %d\n", x, y);
 }
 
-int	event_listener(SDL_Event *ev, int *quit, t_env *gfx)
+int		event_listener(SDL_Event *ev, int *quit, t_env *gfx)
 {
 	while (SDL_PollEvent(ev) != 0)
 	{

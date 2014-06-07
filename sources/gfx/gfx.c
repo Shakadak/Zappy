@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/07 15:04:42 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/07 16:24:34 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ int	gfx_core(t_env *gfx)
 int	main(int argc, char **argv)
 {
 	t_env	gfx;
-	
+
 	(void)argc;
 	(void)argv;
-
 	ft_putendl("GFX on.");
 	init_sdl(&gfx);
 	gfx_core(&gfx);
