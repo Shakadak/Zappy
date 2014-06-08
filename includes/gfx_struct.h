@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/07 16:20:17 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/08 14:36:59 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct		s_team
 	t_player		*players;
 }					t_team;
 
-typedef struct 		s_env
+typedef struct		s_env
 {
 	t_sdl			e;
 	int				camera[2];
