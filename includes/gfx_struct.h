@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/08 16:29:05 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/08 18:16:27 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@
 # define KEY_LEFT	1073741904
 # define KEY_RIGHT	1073741903
 
+# define UP			(1 << 0)
+# define DOWN		(1 << 1)
+# define LEFT		(1 << 2)
+# define RIGHT		(1 << 3)
+
 typedef struct		s_sdl
 {
 	SDL_Window		*win;
@@ -62,6 +67,7 @@ typedef struct		s_team
 typedef struct		s_env
 {
 	t_sdl			e;
+	int				dir;
 	int				camera[2];
 	int				scroll[4];
 	int				s_speed;

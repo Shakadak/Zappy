@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:54:06 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/07 16:25:16 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/08 18:16:40 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int			init_sdl(t_env *gfx)
 	gfx->scroll[2] = 0;
 	gfx->scroll[3] = 0;
 	gfx->s_speed = 1;
+	gfx->dir = 0;
 	return (0);
 }
 

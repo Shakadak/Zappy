@@ -6,12 +6,13 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/06/04 12:54:08 by npineau           #+#    #+#              #
-#    Updated: 2014/06/04 17:55:25 by jvincent         ###   ########.fr        #
+#    Updated: 2014/06/08 18:27:15 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 SRCGFX	:=	camera.c \
+			direction.c \
 			draw.c \
 			event.c \
 			gfx.c \
