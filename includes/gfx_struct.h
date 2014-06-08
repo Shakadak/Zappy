@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/08 14:36:59 by jibanez          ###   ########.fr       */
+/*   Updated: 2014/06/08 16:29:05 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@
 
 # define SDL_WPU SDL_WINDOWPOS_UNDEFINED
 # define FS (SDL_WINDOW_SHOWN)
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH	1920
+# define HEIGHT	1080
 # define MAP_X 100
 # define MAP_Y 100
 # define TILE_W 40
 # define TILE_H 40
 # define MAP_W (MAP_X * TILE_W)
 # define MAP_H (MAP_Y * TILE_H)
-# define KEY_ESC 27
-# define KEY_ENTER 13
-# define KEY_SPACE 32
-# define KEY_UP 1073741906
-# define KEY_DOWN 1073741905
-# define KEY_LEFT 1073741904
-# define KEY_RIGHT 1073741903
+# define KEY_ESC	27
+# define KEY_ENTER	13
+# define KEY_SPACE	32
+# define KEY_UP		1073741906
+# define KEY_DOWN	1073741905
+# define KEY_LEFT	1073741904
+# define KEY_RIGHT	1073741903
 
 typedef struct		s_sdl
 {
