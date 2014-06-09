@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   is_capable.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: garm <garm@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gdefrait <gdefrait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/09 16:24:43 by garm              #+#    #+#             */
-/*   Updated: 2014/06/09 16:25:08 by garm             ###   ########.fr       */
+/*   Created: 2014/01/28 00:26:41 by gdefrait          #+#    #+#             */
+/*   Updated: 2014/01/28 00:26:42 by gdefrait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// TEMPORAIRE EN ATTENDANT LE CODE DE GONZAGUE.
+#include "libft.h"
 
-int		main(void)
+int							is_capable(int c)
 {
+	if (c >= 32 && c <= 63)
+		return (1);
 	return (0);
 }
-
