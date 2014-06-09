@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server_get_opt.c                                   :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: garm <garm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/05/20 17:44:27 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/06 17:36:24 by npineau          ###   ########.fr       */
+/*   Created: 2014/06/09 16:24:43 by garm              #+#    #+#             */
+/*   Updated: 2014/06/09 16:25:08 by garm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft.h"
-#include "serveur.h"
+// TEMPORAIRE EN ATTENDANT LE CODE DE GONZAGUE.
 
-int	get_opt(int ac, char **av)
+int		main(void)
 {
-	if (ac != 2 || !ft_isx(av[1], ft_isdigit))
-	{
-		fprintf(stderr, "Usage: %s port\n", av[0]);
-		exit(1);
-	}
-	return (ft_atoi(av[1]));
+	return (0);
 }
+
