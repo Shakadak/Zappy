@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/08 10:39:32 by npineau           #+#    #+#              #
-#    Updated: 2014/06/04 17:54:36 by jvincent         ###   ########.fr        #
+#    Updated: 2014/06/09 17:28:11 by garm             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -130,7 +130,7 @@ $(CLIENT): $(POBJCLI)
 	$(LINK)
 
 $(SERVEUR): $(POBJSRV)
-	$(LINK)
+	### $(LINK)
 
 $(GFX): $(POBJGFX)
 	$(LINK)
