@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:51 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/08 18:58:47 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/10 16:52:04 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,16 +92,19 @@ int		event_listener(SDL_Event *ev, int *quit, t_env *gfx)
 	{
 		if (ev->type == SDL_QUIT)
 			*quit = 1;
-		else if (ev->key.keysym.sym == KEY_ESC)
-			*quit = 1;
-		else if (ev->key.keysym.sym == KEY_UP)
-			gfx->dir = key_update(ev, gfx->dir, UP);
-		else if (ev->key.keysym.sym == KEY_DOWN)
-			gfx->dir = key_update(ev, gfx->dir, DOWN);
-		else if (ev->key.keysym.sym == KEY_LEFT)
-			gfx->dir = key_update(ev, gfx->dir, LEFT);
-		else if (ev->key.keysym.sym == KEY_RIGHT)
-			gfx->dir = key_update(ev, gfx->dir, RIGHT);
+		else if (ev->type == SDL_KEYDOWN || ev->type == SDL_KEYUP)
+		{
+			if (ev->key.keysym.sym == KEY_ESC)
+				*quit = 1;
+			if (ev->key.keysym.sym == KEY_UP)
+				gfx->dir = key_update(ev, gfx->dir, UP, gfx);
+			if (ev->key.keysym.sym == KEY_DOWN)
+				gfx->dir = key_update(ev, gfx->dir, DOWN, gfx);
+			if (ev->key.keysym.sym == KEY_LEFT)
+				gfx->dir = key_update(ev, gfx->dir, LEFT, gfx);
+			if (ev->key.keysym.sym == KEY_RIGHT)
+				gfx->dir = key_update(ev, gfx->dir, RIGHT, gfx);
+		}
 		else if (ev->type == SDL_MOUSEMOTION)
 			mouse_event(gfx);
 		else if (ev->type == SDL_MOUSEBUTTONDOWN)

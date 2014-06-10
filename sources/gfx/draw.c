@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:39 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/07 16:23:30 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/10 16:32:25 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,16 @@ void	draw_tiles(t_env *gfx)
 	rcsrc.y = 200;
 	rcsrc.w = TILE_W;
 	rcsrc.h = TILE_H;
+	rcdest.w = TILE_W;
+	rcdest.h = TILE_H;
 	j = 0;
 	while (j < MAP_Y)
 	{
 		i = 0;
+		rcdest.y = j * TILE_H;
 		while (i < MAP_X)
 		{
 			rcdest.x = i * TILE_W;
-			rcdest.y = j * TILE_H;
-			rcdest.w = TILE_W;
-			rcdest.h = TILE_H;
 			SDL_RenderCopy(gfx->e.render, gfx->e.tiles, &rcsrc, &rcdest);
 			i++;
 		}
@@ -56,13 +56,13 @@ void	draw_board(t_env *gfx)
 {
 	SDL_Rect	rcdest;
 
-	SDL_SetRenderTarget(gfx->e.render, gfx->e.board);
-	SDL_RenderClear(gfx->e.render);
+//	SDL_SetRenderTarget(gfx->e.render, gfx->e.board);
+//	SDL_RenderClear(gfx->e.render);
 	draw_tiles(gfx);
 	rcdest.x = gfx->camera[0];
 	rcdest.y = gfx->camera[1];
-	rcdest.w = MAP_W;
-	rcdest.h = MAP_H;
-	SDL_SetRenderTarget(gfx->e.render, NULL);
-	SDL_RenderCopy(gfx->e.render, gfx->e.board, NULL, &rcdest);
+//	rcdest.w = MAP_W;
+//	rcdest.h = MAP_H;
+//	SDL_SetRenderTarget(gfx->e.render, NULL);
+//	SDL_RenderCopy(gfx->e.render, gfx->e.board, NULL, &rcdest);
 }

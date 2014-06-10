@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/08 18:16:27 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/10 13:44:32 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@
 # define KEY_LEFT	1073741904
 # define KEY_RIGHT	1073741903
 
-# define UP			(1 << 0)
-# define DOWN		(1 << 1)
-# define LEFT		(1 << 2)
-# define RIGHT		(1 << 3)
+# define UP			0x01
+# define DOWN		0x02
+# define LEFT		0x04
+# define RIGHT		0x08
 
 typedef struct		s_sdl
 {

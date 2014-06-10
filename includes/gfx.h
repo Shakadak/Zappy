@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:52:56 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/08 18:27:55 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/10 16:24:46 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int			event_listener(SDL_Event *ev, int *quit, t_env *gfx);
 /*
 ** direction.c
 */
-int			key_update(SDL_Event *ev, int current, int dir);
+int			key_update(SDL_Event *ev, int current, int dir, t_env *gfx);
 int			rem_dir(int param, int dir);
 int			add_dir(int param, int dir);
 
