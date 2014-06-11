@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/11 17:26:20 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/11 18:41:53 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,9 @@ typedef struct		s_env
 	int				map_w;
 	int				s_speed;
 	t_team			*teams;
+	int				shmid;
+	int				semid;
+	void			*shm;
 }					t_env;
 
 typedef struct		s_case
@@ -90,5 +93,12 @@ typedef struct		s_game
 	t_case			map[MAP_W][MAP_H];
 	int				nb_players;
 }					t_game;
+
+typedef union		u_semun
+{
+	int				val;
+	struct semi_ds	*buf;
+	unsigned short	*array;
+}					t_semun;
 
 #endif

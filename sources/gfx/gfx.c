@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/11 18:06:29 by jibanez          ###   ########.fr       */
+/*   Updated: 2014/06/11 18:14:41 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main(int argc, char **argv)
 
 	(void)argc;
 	(void)argv;
+	init_shm(&gfx);
 	ft_putendl("GFX on.");
 	init_sdl(&gfx);
 	gfx_core(&gfx);

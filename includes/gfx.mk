@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/06/04 12:54:08 by npineau           #+#    #+#              #
-#    Updated: 2014/06/08 18:27:15 by npineau          ###   ########.fr        #
+#    Updated: 2014/06/11 18:33:27 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,4 +16,5 @@ SRCGFX	:=	camera.c \
 			draw.c \
 			event.c \
 			gfx.c \
-			init.c
+			init.c \
+			shm.c
