@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/08 17:29:34 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/11 17:30:09 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/11 18:12:31 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@ int	rem_dir(int param, int dir)
 	return (param & ~dir);
 }
 
-/*
-** TODO : fix line 30
-*/
 int	key_update(SDL_Event *ev, int current, int dir, t_env *gfx)
 {
 	gfx->s_speed = 1;
