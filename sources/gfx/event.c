@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:51 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/10 16:52:04 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/11 17:34:18 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,20 @@ void	click_event(t_env *gfx)
 	printf("%d - %d\n", x, y);
 }
 
+int		zoom_in(t_env *gfx)
+{
+	if (gfx->zoom < 100)
+		gfx->zoom++;
+	return (0);
+}
+
+int		zoom_out(t_env *gfx)
+{
+	if (gfx->zoom > -gfx->tile_w / 2)
+		gfx->zoom--;
+	return (0);
+}
+
 int		event_listener(SDL_Event *ev, int *quit, t_env *gfx)
 {
 	while (SDL_PollEvent(ev) != 0)
@@ -96,14 +110,18 @@ int		event_listener(SDL_Event *ev, int *quit, t_env *gfx)
 		{
 			if (ev->key.keysym.sym == KEY_ESC)
 				*quit = 1;
-			if (ev->key.keysym.sym == KEY_UP)
+			else if (ev->key.keysym.sym == KEY_UP)
 				gfx->dir = key_update(ev, gfx->dir, UP, gfx);
-			if (ev->key.keysym.sym == KEY_DOWN)
+			else if (ev->key.keysym.sym == KEY_DOWN)
 				gfx->dir = key_update(ev, gfx->dir, DOWN, gfx);
-			if (ev->key.keysym.sym == KEY_LEFT)
+			else if (ev->key.keysym.sym == KEY_LEFT)
 				gfx->dir = key_update(ev, gfx->dir, LEFT, gfx);
-			if (ev->key.keysym.sym == KEY_RIGHT)
+			else if (ev->key.keysym.sym == KEY_RIGHT)
 				gfx->dir = key_update(ev, gfx->dir, RIGHT, gfx);
+			else if (ev->key.keysym.sym == KEY_PLUS)
+				zoom_in(gfx);
+			else if (ev->key.keysym.sym == KEY_MINUS)
+				zoom_out(gfx);
 		}
 		else if (ev->type == SDL_MOUSEMOTION)
 			mouse_event(gfx);

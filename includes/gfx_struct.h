@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/10 13:44:32 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/11 17:26:20 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@
 # define KEY_DOWN	1073741905
 # define KEY_LEFT	1073741904
 # define KEY_RIGHT	1073741903
-
+# define KEY_PLUS	119
+# define KEY_MINUS	115
 # define UP			0x01
 # define DOWN		0x02
 # define LEFT		0x04
@@ -69,7 +70,11 @@ typedef struct		s_env
 	t_sdl			e;
 	int				dir;
 	int				camera[2];
-	int				scroll[4];
+	int				zoom;
+	int				tile_h;
+	int				tile_w;
+	int				map_h;
+	int				map_w;
 	int				s_speed;
 	t_team			*teams;
 }					t_env;
