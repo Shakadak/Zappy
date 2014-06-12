@@ -6,10 +6,12 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/11 18:14:41 by jibanez          ###   ########.fr       */
+/*   Updated: 2014/06/12 15:21:34 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "signal.h"
+#include <unistd.h>
 #include "gfx.h"
 
 int	gfx_core(t_env *gfx)
@@ -28,16 +30,28 @@ int	gfx_core(t_env *gfx)
 	return (0);
 }
 
+int	gfx_net(t_env *gfx)
+{
+
+}
+
 int	main(int argc, char **argv)
 {
 	t_env	gfx;
+	pid_t	pid;
 
 	(void)argc;
 	(void)argv;
 	init_shm(&gfx);
-	ft_putendl("GFX on.");
-	init_sdl(&gfx);
-	gfx_core(&gfx);
-	close_sdl(&gfx);
+	pid = fork();
+	if (pid == 0)
+		gfx_net(&gfx);
+	else
+	{
+		ft_putendl("GFX on.");
+		init_sdl(&gfx);
+		gfx_core(&gfx);
+		close_sdl(&gfx);
+	}
 	return (0);
 }
