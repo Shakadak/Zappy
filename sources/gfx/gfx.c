@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/12 15:36:20 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/12 18:16:57 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,12 @@ int	gfx_core(t_env *gfx)
 
 int	gfx_net(t_env *gfx)
 {
+	int	sock;
 
+	(void)gfx;
+	if ((sock = create_client((char *)NULL, 0)) == -1)
+		return (-1);
+	return (0);
 }
 
 int	main(int argc, char **argv)
