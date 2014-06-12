@@ -29,10 +29,23 @@ void		draw_board(t_env *gfx);
 /*
 ** event.c
 */
+int			zoom_in(t_env *gfx);
+int			zoom_out(t_env *gfx);
+int			event_listener(SDL_Event *ev, int *quit, t_env *gfx);
+
+/*
+** mouse.c
+*/
 void		mouse_check_y(t_env *gfx, int y);
 void		mouse_check_x(t_env *gfx, int x);
 void		mouse_event(t_env *gfx);
-int			event_listener(SDL_Event *ev, int *quit, t_env *gfx);
+
+/*
+** click.c
+*/
+int			is_clickable(t_env *gfx, int x, int y);
+int			handle_click_event(t_env *gfx, int event);
+void		click_event(t_env *gfx);
 
 /*
 ** direction.c
