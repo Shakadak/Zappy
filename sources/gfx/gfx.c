@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/12 15:25:46 by jibanez          ###   ########.fr       */
+/*   Updated: 2014/06/12 15:36:20 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int	main(int argc, char **argv)
 
 	(void)argc;
 	(void)argv;
-	init_shm(&gfx);
+	if (init_shm(&gfx) == 1)
+		return (1);
 	pid = fork();
 	if (pid == 0)
 		gfx_net(&gfx);
