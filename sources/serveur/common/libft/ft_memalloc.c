@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serveur.c                                          :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gdefrait <gdefrait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/02 18:18:03 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/03 11:08:57 by npineau          ###   ########.fr       */
+/*   Created: 2013/11/21 15:09:38 by gdefrait          #+#    #+#             */
+/*   Updated: 2013/11/21 15:09:59 by gdefrait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serveur.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_memalloc(size_t size)
 {
-	(void)argc;
-	(void)argv;
-	ft_putendl("Server on.");
-	return (0);
+	void	*res;
+
+	if (!size)
+		return (NULL);
+	if ((res = malloc (size)))
+	{
+		ft_bzero(res, size);
+		return (res);
+	}
+	else
+		return (NULL);
 }
