@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/13 18:29:20 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/13 19:13:33 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,19 @@ typedef struct		s_net
 	fd_set			readfds;
 }					t_net;
 
+typedef struct		s_case
+{
+	char			stones[6];
+	char			food;
+}					t_case;
+
+typedef struct		s_game
+{
+	t_case			**map;
+	int				nb_players;
+	t_team			*teams;
+}					t_game;
+
 typedef struct		s_shm
 {
 	int				shmid;
@@ -96,28 +109,8 @@ typedef struct		s_env
 	int				map_h;
 	int				map_w;
 	int				s_speed;
-	t_team			*teams;
 	t_net			net;
 	t_shm			shm;
 }					t_env;
-
-typedef struct		s_case
-{
-	char			stones[6];
-	char			food;
-}					t_case;
-
-typedef struct		s_game
-{
-	t_case			**map;
-	int				nb_players;
-}					t_game;
-
-typedef union		u_semun
-{
-	int				val;
-	struct semi_ds	*buf;
-	unsigned short	*array;
-}					t_semun;
 
 #endif
