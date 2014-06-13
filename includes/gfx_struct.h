@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/11 17:26:20 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/13 18:18:40 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ typedef struct		s_player
 	int				y;
 	int				level;
 	int				food;
-	int				stones[7];
+	int				stones[6];
+	struct s_player	*next;
 }					t_player;
 
 typedef struct		s_team
@@ -81,13 +82,13 @@ typedef struct		s_env
 
 typedef struct		s_case
 {
-	int				stones[7];
-	int				food;
+	char			stones[6];
+	char			food;
 }					t_case;
 
 typedef struct		s_game
 {
-	t_case			map[MAP_W][MAP_H];
+	t_case			**map;
 	int				nb_players;
 }					t_game;
 

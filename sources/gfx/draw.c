@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:39 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/11 18:53:53 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/13 18:18:43 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	draw_tiles(t_env *gfx)
 	rc[1].w = gfx->tile_w + gfx->zoom;
 	rc[1].h = gfx->tile_h + gfx->zoom;
 	min[0] = gfx->camera[0] / rc[1].w - 1;
+	min[1] = gfx->camera[1] / rc[1].h - 1;
 	max[0] = (gfx->camera[0] + WIDTH) / rc[1].w;
 	max[1] = (gfx->camera[1] + HEIGHT) / rc[1].h;
 	while (min[0] <= max[0])
 	{
-		min[1] = gfx->camera[1] / rc[1].h - 1;
 		while (min[1] <= max[1])
 		{
 			rc[1].x = min[0] * rc[1].w - gfx->camera[0];
@@ -64,5 +64,5 @@ void	draw_tiles(t_env *gfx)
 void	draw_board(t_env *gfx)
 {
 	draw_tiles(gfx);
-	SDL_RenderPresent(gfx->e.render);
+	draw_players(gfx);
 }

@@ -6,11 +6,12 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/11 16:15:01 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/13 18:18:44 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gfx.h"
+#include "libft.h"
 
 int	gfx_core(t_env *gfx)
 {
@@ -24,6 +25,7 @@ int	gfx_core(t_env *gfx)
 		SDL_RenderClear(gfx->e.render);
 		move_camera(gfx);
 		draw_board(gfx);
+		SDL_RenderPresent(gfx->e.render);
 	}
 	return (0);
 }
