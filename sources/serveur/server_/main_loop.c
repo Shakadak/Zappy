@@ -130,13 +130,9 @@ void	load_function(int action, int pl, t_env *e)
 	if (action == FORK)
 		fork_player(e, pl);
 	if (action == INCANTATION)
-<<<<<<< HEAD
 	{
 		incantation(e, pl);
 	}
-=======
-		incantation(e, pl);
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	if (action == CNB)
 		connect_nbr(e, pl);
 	if (action == BROADCAST)
@@ -251,12 +247,8 @@ t_pl		new_tpl(t_env *e, int cs)
 	res.x = rand() % e->map.xlen;
 	res.y = rand() % e->map.ylen;
 	e->map.map[res.y][res.x].plonit++;
-<<<<<<< HEAD
 	res.action[0] = 0;
 	res.cact = 0;
-=======
-	res.action = 0;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	res.actionwait = 0;
 	res.bc = NULL;
 	res.updated = 1;
@@ -283,12 +275,8 @@ t_pl		new_pl(t_env *e, t_egg egg)
 	res.x = egg.x;
 	res.y = egg.y;
 	e->map.map[egg.y][egg.y].plonit++;
-<<<<<<< HEAD
 	res.action[0] = 0;
 	res.cact = 0;
-=======
-	res.action = 0;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	res.actionwait = 0;
 	res.bc = NULL;
 	res.updated = 1;
@@ -297,10 +285,7 @@ t_pl		new_pl(t_env *e, t_egg egg)
 	res.cs = -1;
 	res.lvl = 1;
 	res.timer = 0;
-<<<<<<< HEAD
 	res.cact = 0;
-=======
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	res.what = 0;
 	res.team = 0;
 	return (res);
@@ -316,10 +301,7 @@ void	rand_generate(t_env *e)
 	int			seedr;
 
 	srand(seed);
-<<<<<<< HEAD
 	i = 0;
-=======
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	seed += 3;
 	seednb = rand() % 9; //faire apres que ce soit plutot en rapport avec la taille terrain
 	while (i < seednb)
@@ -345,7 +327,6 @@ void		serv_update(t_env *e)
 	while (i < e->nbpl)
 	{
 		ft_putstr("PB[1]");
-<<<<<<< HEAD
 		if (e->pl[i].cact > 0)
 		{ //check le tablo entier ici et timer[WACT]
 			if (time(&tloc) - e->pl[i].timer
@@ -357,18 +338,6 @@ void		serv_update(t_env *e)
 					if (e->pl[i].cact > 0)
 						e->pl[i].timer = time(&tloc);
 				}
-=======
-		if (e->pl[i].action && e->pl[i].actionwait)
-		{
-			if (time(&tloc) - e->pl[i].timer
-				> (getacttime(e->pl[i].action) / e->time_unit))
-			{
-				write(1, "load_function", 13);
-				load_function(e->pl[i].action, i, e);
-				e->pl[i].action = 0;
-				e->pl[i].actionwait = 0;
-			}
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 		}
 		if (e->pl[i].updated)
 		{

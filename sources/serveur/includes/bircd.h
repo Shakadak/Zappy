@@ -20,10 +20,7 @@
 # include "ftp.h"
 
 # define			BEGINING_PL 12
-<<<<<<< HEAD
 # define			WACT 10
-=======
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 # define			GENE_TIME 4
 # define			START_FOOD 200
 # define			FD_FREE	0
@@ -31,10 +28,7 @@
 # define			FD_SERV	1
 # define			FD_CLIENT	2
 # define			BUF_SIZE	4096
-<<<<<<< HEAD
 # define			WACT 10
-=======
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 # define			JOIN 4
 # define			NICK 3
 # define			WHO 2
@@ -119,11 +113,7 @@ typedef struct		s_pl
 {
 	int				graph;
 	int				r[7];
-<<<<<<< HEAD
 	int				action[WACT + 1];
-=======
-	int				action;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	int				actionwait;
 	char			*bc;
 	int				x;
@@ -135,10 +125,7 @@ typedef struct		s_pl
 	int				lvl;
 	time_t			timer;
 	int				what;
-<<<<<<< HEAD
 	int				cact;
-=======
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	int				team; //idem
 }					t_pl;
 

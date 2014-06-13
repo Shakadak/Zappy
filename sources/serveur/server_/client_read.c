@@ -210,11 +210,7 @@ int						foundop(char *tmp, char *buf, t_env *e, int cs)
 	ft_putstr(ft_itoa(e->pl[e->fds[cs].pl].dir));
 	if (e->fds[cs].pl >= 0 && !e->fds[cs].noteam)
 	{
-<<<<<<< HEAD
 		if (e->pl[e->fds[cs].pl].cact < WACT)
-=======
-		if (!e->pl[e->fds[cs].pl].actionwait)
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 		{
 			ft_putstr("foundop");
 			if (!ft_strcmp(tmp, "avance"))
@@ -265,11 +261,7 @@ int						foundop(char *tmp, char *buf, t_env *e, int cs)
 			if (!ft_strcmp(tmp, "incantation"))
 			{
 				ft_putstr(">>>>>>>>>>>>>>>>incantation<<<<<<<<<");
-<<<<<<< HEAD
 				prepare_incantation(e, cs);
-=======
-				incantation(e, cs);
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 			}
 			if (!ft_strcmp(tmp, "fork"))
 			{
@@ -285,14 +277,10 @@ int						foundop(char *tmp, char *buf, t_env *e, int cs)
 			{
 				change_pos(&buf[3], e, cs);
 			}
-<<<<<<< HEAD
 			if (e->pl[e->fds[cs].pl].cact == 0)
 			{
 			e->pl[e->fds[cs].pl].timer = time(&tloc);
 			}
-=======
-			e->pl[e->fds[cs].pl].timer = time(&tloc);
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	}
 	}
 	}

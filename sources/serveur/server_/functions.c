@@ -28,14 +28,10 @@ double					square(double nbr)
 int						prepare_move(int lrf, t_env *e, int cs)
 {
 	e->pl[e->fds[cs].pl].actionwait = 1;
-<<<<<<< HEAD
 	e->pl[e->fds[cs].pl].action[e->pl[e->fds[cs].pl].cact] = MOVE;
 	e->pl[e->fds[cs].pl].cact++;
 	ft_putstr("cact:");
 	ft_putstr(ft_itoa(e->pl[e->fds[cs].pl].cact));
-=======
-	e->pl[e->fds[cs].pl].action = MOVE;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	e->pl[e->fds[cs].pl].lrf = lrf;
 	return (1);
 }
@@ -104,13 +100,10 @@ int						change_pos(char *buf, t_env *e, int cs)
 	e->pl[e->fds[cs].pl].x = x;
 	e->pl[e->fds[cs].pl].y = y;
 	e->pl[e->fds[cs].pl].dir = dir;
-<<<<<<< HEAD
 	e->pl[e->fds[cs].pl].lvl = getnumb(buf, 3, 0);
 	ft_putstr("LVL:");
 	ft_putstr(ft_itoa(e->pl[e->fds[cs].pl].lvl));
 	ft_putstr("<<<");
-=======
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	e->map.map[e->pl[e->fds[cs].pl].y][e->pl[e->fds[cs].pl].x].plonit++;
 	ft_putstr(" x:");
 	ft_putstr(ft_itoa(x));
@@ -381,12 +374,9 @@ char					*seecaselvl(int lvl, int pl, t_env *e)
 	ft_putstr("dir:");
 	ft_putstr(ft_itoa(e->pl[pl].dir));
 	ft_putstr("<");
-<<<<<<< HEAD
 	ft_putstr("CASELVL:");
 	ft_putstr(ft_itoa(lvl));
 	ft_putstr("<<<");
-=======
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	if (((e->pl[pl].dir % 4) * (M_PI / 2)) == UP)
 		return (check_cases_up(e, ((e->pl[pl].y + lvl + 1)
 			% e->map.ylen), e->pl[pl].x, lvl + 1));
@@ -412,16 +402,9 @@ int						see(t_env *e, int pl)
 	res = ft_stradd(res, lookoncase(e, e->pl[pl].y, e->pl[pl].x, 0));
 	res = ft_stradd(res, ", ");
 	res = ft_stradd(res, seecaselvl(0, pl, e));
-<<<<<<< HEAD
 	while (lv > 0)
 	{
 		res = ft_stradd(res, seecaselvl((e->pl[pl].lvl - lv), pl, e));
-=======
-	lv--;
-	while (lv > 0)
-	{
-		res = ft_stradd(res, seecaselvl((e->pl[pl].lvl - (lv + 1)), pl, e));
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 		lv--;
 	}
 	res = ft_stradd(res, "}");
@@ -434,12 +417,8 @@ int						see(t_env *e, int pl)
 int						prepare_see(t_env *e, int cs)
 {
 	e->pl[e->fds[cs].pl].actionwait = 1;
-<<<<<<< HEAD
 	e->pl[e->fds[cs].pl].action[e->pl[e->fds[cs].pl].cact] = SEE;
 	e->pl[e->fds[cs].pl].cact++;
-=======
-	e->pl[e->fds[cs].pl].action = SEE;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	//see(e, e->fds[cs].pl);
 	return (1);
 }
@@ -447,12 +426,8 @@ int						prepare_see(t_env *e, int cs)
 int						prepare_inv(t_env *e, int cs)
 {
 	e->pl[e->fds[cs].pl].actionwait = 1;
-<<<<<<< HEAD
 	e->pl[e->fds[cs].pl].action[e->pl[e->fds[cs].pl].cact] = INV;
 	e->pl[e->fds[cs].pl].cact++;
-=======
-	e->pl[e->fds[cs].pl].action = INV;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	return (1);
 }
 //aff_inv(e, e->fds[cs].pl);
@@ -513,12 +488,8 @@ int						prepare_take(char *buf, t_env *e, int cs)
 		ft_putstr(buf);
 	}
 	e->pl[e->fds[cs].pl].actionwait = 1;
-<<<<<<< HEAD
 	e->pl[e->fds[cs].pl].action[e->pl[e->fds[cs].pl].cact] = TAKE;
 	e->pl[e->fds[cs].pl].cact++;
-=======
-	e->pl[e->fds[cs].pl].action = TAKE;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	return (1);
 }
 
@@ -538,12 +509,8 @@ int						take(t_env *e, int pl)
 int						prepare_drop(char *buf, t_env *e, int cs)
 {
 	e->pl[e->fds[cs].pl].actionwait = 1;
-<<<<<<< HEAD
 	e->pl[e->fds[cs].pl].action[e->pl[e->fds[cs].pl].cact] = DROP;
 	e->pl[e->fds[cs].pl].cact++;
-=======
-	e->pl[e->fds[cs].pl].action = DROP;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	if (ft_strlen(buf) > 2)
 		e->pl[e->fds[cs].pl].what = get_what(buf);
 	drop(e, e->fds[cs].pl);
@@ -571,11 +538,8 @@ int						eject(t_env *e, int pl)
 	char				*res;
 	int					i;
 	int					j;
-<<<<<<< HEAD
 	int					tmpx;
 	int					tmpy;
-=======
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 
 	i = 0;
 	j = 0;
@@ -588,7 +552,6 @@ int						eject(t_env *e, int pl)
 			if (e->pl[j].y == e->pl[pl].y && e->pl[j].x == e->pl[pl].x
 				&& j != pl)
 			{
-<<<<<<< HEAD
 				ft_putstr("x:");
 				ft_putstr(ft_itoa(e->pl[j].x));
 				ft_putstr("y:");
@@ -609,12 +572,6 @@ int						eject(t_env *e, int pl)
 				ft_putstr(ft_itoa(e->pl[j].x));
 				ft_putstr("newy:");
 				ft_putstr(ft_itoa(e->pl[j].y));
-=======
-				e->pl[j].x = (int)(e->pl[j].x + (cos(e->pl[pl].dir) * EJECTPOWA))
-				% (int)e->map.xlen;
-				e->pl[j].y = (int)(e->pl[j].y + (sin(e->pl[pl].dir) * EJECTPOWA))
-				% (int)e->map.ylen;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 				res = ft_strclone("deplacement ");
 				res = ft_stradd(res, ft_itoa(getdir((e->pl[pl].x - e->pl[j].x),
 					(e->pl[pl].y - e->pl[j].y), e, j)));
@@ -650,12 +607,8 @@ int						prepare_eject(t_env *e, int cs)
 	if (e->map.map[e->pl[pl].y][e->pl[pl].x].plonit > 1)
 	{
 		e->pl[e->fds[cs].pl].actionwait = 1;
-<<<<<<< HEAD
 		e->pl[e->fds[cs].pl].action[e->pl[e->fds[cs].pl].cact] = EJECT;
 		e->pl[e->fds[cs].pl].cact++;
-=======
-		e->pl[e->fds[cs].pl].action = EJECT;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	}
 	return (1);
 }
@@ -664,12 +617,8 @@ int						prepare_eject(t_env *e, int cs)
 int						prepare_broadcast(char *buf, t_env *e, int cs)
 {
 	e->pl[e->fds[cs].pl].actionwait = 1;
-<<<<<<< HEAD
 	e->pl[e->fds[cs].pl].action[e->pl[e->fds[cs].pl].cact] = BROADCAST;
 	e->pl[e->fds[cs].pl].cact++;
-=======
-	e->pl[e->fds[cs].pl].action = BROADCAST;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	e->pl[e->fds[cs].pl].bc = ft_strclone(buf);
 	return (1);
 }
@@ -702,13 +651,7 @@ int						getdir(double x, double y, t_env *e, int pl)
 		if (tmpx != 0 && tmpy != 0)
 		{
 			if (tmpy < 0)
-<<<<<<< HEAD
 				angl = acos(tmpx) * (-1);
-=======
-			{
-				angl = acos(tmpx) * (-1);
-			}
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 			if (tmpy >= 0)
 				angl = acos(tmpx);
 			ft_putstr("\t\tANGLE:");
@@ -724,10 +667,6 @@ int						getdir(double x, double y, t_env *e, int pl)
 		ft_putstr("\t\tANGLE:");
 		ft_putstr(ft_itoa((int)(angl * 100)));
 		ft_putstr("<<");
-<<<<<<< HEAD
-=======
-		angl = angl;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 		angl -= (M_PI / 2) * e->pl[pl].dir;
 		while (angl < 0)
 			angl += (M_PI * 2);
@@ -871,7 +810,6 @@ int						check_ressources(int *ressources, int x, int y, t_env *e)
 	c = 0;
 	while (i < NBRESSOURCE)
 	{
-<<<<<<< HEAD
 		ft_putstr("ressources:");
 		ft_putstr(ft_itoa(ressources[i]));
 		ft_putstr("map:");
@@ -882,18 +820,11 @@ int						check_ressources(int *ressources, int x, int y, t_env *e)
 			c++;
 		}
 		i++;
-=======
-		if (e->map.map[y][x].r[i] >= ressources[i])
-			c++;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	}
 	i = 1;
 	if (c == NBRESSOURCE)
 	{
-<<<<<<< HEAD
 		ft_putstr("RESSOURCES OK;");
-=======
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 		while (i < NBRESSOURCE)
 		{
 			e->map.map[y][x].r[i] -= ressources[i];
@@ -939,16 +870,11 @@ int						incantation_(int nbpl, int *ressources, t_env *e,
 				res = ft_strclone("elevation en cours");
 				res = ft_stradd(res, " niveau actuel : ");
 				res = ft_stradd(res, ft_itoa(e->pl[j].lvl + 1));
-<<<<<<< HEAD
 				if (e->pl[j].cact < WACT)
 				{
 					e->pl[j].action[e->pl[j].cact] = LVLUP;
 					e->pl[j].cact++;
 				}
-=======
-				e->pl[j].actionwait = 1;
-				e->pl[j].action = LVLUP;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 				send_res(j, res, e);
 				free(res);
 				res = NULL;
@@ -960,20 +886,12 @@ int						incantation_(int nbpl, int *ressources, t_env *e,
 		free(tograph);
 		tograph = NULL;
 	}
-<<<<<<< HEAD
 	ft_putstr("?");
-=======
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	res = ft_strclone("elevation en cours");
 	res = ft_stradd(res, " niveau actuel : ");
 	res = ft_stradd(res, ft_itoa(e->pl[j].lvl + 1));
 	send_res(pl, res, e);
-<<<<<<< HEAD
 	ft_putstr("SENDRES");
-=======
-	e->pl[pl].actionwait = 1;
-	e->pl[pl].action = LVLUP;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	free(res);
 	res = NULL;
 	return (1);
@@ -993,7 +911,6 @@ int						incantation(t_env *e, int pl)
 	int					*res;
 
 	lv = e->pl[pl].lvl;
-<<<<<<< HEAD
 	ft_putstr("LVLBORDEL:");
 	ft_putstr(ft_itoa(e->pl[pl].lvl));
 	ft_putstr("INCANTATION EN COURS:");
@@ -1005,10 +922,6 @@ int						incantation(t_env *e, int pl)
 		ft_putstr("lvl1");
 		res = (int [7]){0, 1, 0, 0, 0, 0, 0};
 	}
-=======
-	if (lv == 1)
-		res = (int [7]){0, 1, 0, 0, 0, 0, 0};
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	else if (lv == 2)
 		res = (int [7]){0, 1, 1, 1, 0, 0, 0};
 	else if (lv == 3)
@@ -1021,26 +934,19 @@ int						incantation(t_env *e, int pl)
 		res = (int [7]){0, 1, 2, 3, 0, 1, 0};
 	else if (lv == 7)
 		res = (int [7]){0, 2, 2, 2, 2, 2, 1};
-<<<<<<< HEAD
 	else
 	{
 		ft_putstr("PBBB");
 		return (0);
 	}
-=======
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	incantation_(lv - 1, res, e, pl);
 	return (1);
 }
 
 int						prepare_incantation(t_env *e, int cs)
 {
-<<<<<<< HEAD
 	e->pl[e->fds[cs].pl].action[e->pl[e->fds[cs].pl].cact] = INCANTATION;
 	e->pl[e->fds[cs].pl].cact++;
-=======
-	e->pl[e->fds[cs].pl].action = INCANTATION;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	e->pl[e->fds[cs].pl].actionwait = 1;
 	return (1);
 }
@@ -1084,24 +990,15 @@ int						fork_player(t_env *e, int pl)
 	e->eggs[e->nbegg].used = 0;
 	e->nbegg++;
 	//
-<<<<<<< HEAD
 	e->pl[pl].action[e->pl[pl].cact] = FORK;
 	e->pl[pl].cact++;
-=======
-	e->pl[pl].actionwait = 1;
-	e->pl[pl].action = FORK;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	return (1);
 }
 
 int						prepare_fork(t_env *e, int cs)
 {
-<<<<<<< HEAD
 	e->pl[e->fds[cs].pl].action[e->pl[e->fds[cs].pl].cact] = FORK;
 	e->pl[e->fds[cs].pl].cact++;
-=======
-	e->pl[e->fds[cs].pl].action = FORK;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	e->pl[e->fds[cs].pl].actionwait = 1;
 	return (1);
 }
@@ -1117,12 +1014,8 @@ int						connect_nbr(t_env *e, int cs)
 	else
 		send_res(pl, ft_itoa(BEGINING_PL - e->teams[e->pl[pl].team].nbpl), e);
 	e->pl[pl].actionwait = 1;
-<<<<<<< HEAD
 	e->pl[pl].action[e->pl[pl].cact] = CNB;
 	e->pl[pl].cact++;
-=======
-	e->pl[pl].action = CNB;
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	return (1);
 }
 //

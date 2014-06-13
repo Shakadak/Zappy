@@ -62,10 +62,7 @@ void					who_is_here(t_env *e, int cs)
 	int					c;
 
 	i = 0;
-<<<<<<< HEAD
 	c = 0;
-=======
->>>>>>> b9956d5a5d74e7af001fd6fc2816a7536869809e
 	while (i < e->maxfd)
 	{
 		if (e->fds[i].chan != NULL)
