@@ -6,13 +6,14 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/13 18:24:13 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/13 18:26:49 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GFX_STRUCT_H
 # define GFX_STRUCT_H
 
+# include <sys/select.h>
 # include "libft.h"
 # include "SDL.h"
 # include "SDL_image.h"
@@ -40,6 +41,8 @@
 # define DOWN		0x02
 # define LEFT		0x04
 # define RIGHT		0x08
+# define SHM_SIZE	4096
+# define READ_BUFF	4096
 
 typedef struct		s_sdl
 {
@@ -66,6 +69,22 @@ typedef struct		s_team
 	t_player		*players;
 }					t_team;
 
+typedef struct		s_net
+{
+	char			*ip;
+	int				port;
+	int				sock;
+	char			buff[READ_BUFF +1];
+	fd_set			readfds;
+}					t_net;
+
+typedef struct		s_shm
+{
+	int				shmid;
+	int				semid;
+	void			*shm;
+}					t_shm;
+
 typedef struct		s_env
 {
 	t_sdl			e;
@@ -78,9 +97,8 @@ typedef struct		s_env
 	int				map_w;
 	int				s_speed;
 	t_team			*teams;
-	int				shmid;
-	int				semid;
-	void			*shm;
+	t_net			net;
+	t_shm			shm;
 }					t_env;
 
 typedef struct		s_case

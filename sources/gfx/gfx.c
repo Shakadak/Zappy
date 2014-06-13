@@ -6,7 +6,11 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2014/06/13 18:23:06 by jvincent         ###   ########.fr       */
+=======
+/*   Updated: 2014/06/13 17:36:58 by jibanez          ###   ########.fr       */
+>>>>>>> gfx-net
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +38,9 @@ int	gfx_core(t_env *gfx)
 
 int	gfx_net(t_env *gfx)
 {
-	int	sock;
-
-	(void)gfx;
-	if ((sock = create_client((char *)NULL, 0)) == -1)
+	if ((gfx->net.sock = create_client(gfx->net.ip, gfx->net.port)) == -1)
 		return (-1);
+	gfx_net_loop(gfx);
 	return (0);
 }
 
@@ -47,10 +49,15 @@ int	main(int argc, char **argv)
 	t_env	gfx;
 	pid_t	pid;
 
-	(void)argc;
-	(void)argv;
-	if (init_shm(&gfx) == 1)
+	if (argc != 3)
+	{
+		ft_putendl("usage: ./gfx <ip> <port>");
 		return (1);
+	}
+	if (init_shm(&gfx, SHM_SIZE) == 1)
+		return (1);
+	gfx.net.ip = argv[1];
+	gfx.net.port = ft_atoi(argv[2]);
 	pid = fork();
 	if (pid == 0)
 		gfx_net(&gfx);
