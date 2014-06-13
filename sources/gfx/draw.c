@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:39 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/13 18:18:43 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/13 18:28:10 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,4 @@ void	draw_tiles(t_env *gfx)
 void	draw_board(t_env *gfx)
 {
 	draw_tiles(gfx);
-	draw_players(gfx);
 }
