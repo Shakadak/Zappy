@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/12 18:14:24 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/12 18:14:38 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/13 16:47:54 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include "libft.h"
-#include "gfx-net.h"
+#include "gfx_net.h"
 
 int	create_client(char *addr, int port)
 {

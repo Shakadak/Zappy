@@ -6,15 +6,14 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:52:56 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/12 18:15:11 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/13 17:58:44 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GFX_H
 # define GFX_H
 
-# include "gfx_struct.h"
-# include "gfx-net.h"
+# include "gfx_net.h"
 
 /*
 ** gfx.c
@@ -70,7 +69,7 @@ void		close_sdl(t_env *gfx);
 /*
 ** shm.c
 */
-int			init_shm(t_env *gfx);
+int			init_shm(t_env *gfx, int size);
 int			sem_lock(t_env *gfx, int lock);
 int			shm_free(t_env *gfx);
 
