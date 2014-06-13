@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/13 19:01:33 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/13 19:32:05 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(int argc, char **argv)
 		ft_putendl("usage: ./gfx <ip> <port>");
 		return (1);
 	}
+	sleep(50);
 	gfx.net.ip = argv[1];
 	gfx.net.port = ft_atoi(argv[2]);
 	gfx_net(&gfx);
