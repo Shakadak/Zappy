@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:52:56 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/10 16:24:46 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/12 18:15:11 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GFX_H
 
 # include "gfx_struct.h"
+# include "gfx-net.h"
 
 /*
 ** gfx.c
@@ -65,5 +66,12 @@ void		move_camera(t_env *gfx);
 SDL_Texture	*load_texture(t_env *gfx, char *str);
 int			init_sdl(t_env *gfx);
 void		close_sdl(t_env *gfx);
+
+/*
+** shm.c
+*/
+int			init_shm(t_env *gfx);
+int			sem_lock(t_env *gfx, int lock);
+int			shm_free(t_env *gfx);
 
 #endif
