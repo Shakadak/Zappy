@@ -401,7 +401,7 @@ int						see(t_env *e, int pl)
 	res = ft_strclone("{");
 	res = ft_stradd(res, lookoncase(e, e->pl[pl].y, e->pl[pl].x, 0));
 	res = ft_stradd(res, ", ");
-	res = ft_stradd(res, seecaselvl(0, pl, e));
+	//res = ft_stradd(res, seecaselvl(0, pl, e));
 	while (lv > 0)
 	{
 		res = ft_stradd(res, seecaselvl((e->pl[pl].lvl - lv), pl, e));
