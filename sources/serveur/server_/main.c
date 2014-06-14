@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serveur.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gdefrait <gdefrait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/02 18:18:03 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/03 11:08:57 by npineau          ###   ########.fr       */
+/*   Created: 2014/05/25 03:17:04 by gdefrait          #+#    #+#             */
+/*   Updated: 2014/05/25 03:17:05 by gdefrait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serveur.h"
+#include "bircd.h"
 
-int	main(int argc, char **argv)
+int			main(int ac, char **av)
 {
-	(void)argc;
-	(void)argv;
-	ft_putendl("Server on.");
+	t_env	e;
+
+	init_env(&e, av);
+	get_opt(&e, ac, av);
+	srv_create(&e, e.port);
+	main_loop(&e);
 	return (0);
 }

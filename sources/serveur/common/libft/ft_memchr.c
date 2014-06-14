@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serveur.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gdefrait <gdefrait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/02 18:18:03 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/03 11:08:57 by npineau          ###   ########.fr       */
+/*   Created: 2013/11/20 19:15:15 by gdefrait          #+#    #+#             */
+/*   Updated: 2013/11/20 19:15:17 by gdefrait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serveur.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void						*ft_memchr(const void *s, int c, size_t n)
 {
-	(void)argc;
-	(void)argv;
-	ft_putendl("Server on.");
+	const unsigned char		*p;
+
+	if (n && s)
+	{
+		p = s;
+		while (n--)
+		{
+			if (*p++ == (unsigned char)c)
+				return ((void *)(p - 1));
+		}
+	}
 	return (0);
 }

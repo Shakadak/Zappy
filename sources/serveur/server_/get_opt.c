@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serveur.c                                          :+:      :+:    :+:   */
+/*   get_opt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gdefrait <gdefrait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/02 18:18:03 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/03 11:08:57 by npineau          ###   ########.fr       */
+/*   Created: 2014/05/25 03:16:35 by gdefrait          #+#    #+#             */
+/*   Updated: 2014/05/25 03:16:36 by gdefrait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serveur.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "bircd.h"
 
-int	main(int argc, char **argv)
+void	get_opt(t_env *e, int ac, char **av)
 {
-	(void)argc;
-	(void)argv;
-	ft_putendl("Server on.");
-	return (0);
+	(void)e;
+	(void)av;
+	(void)ac;
+	//e->port = atoi(av[1]);
 }

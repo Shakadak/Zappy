@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serveur.c                                          :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gdefrait <gdefrait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/02 18:18:03 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/03 11:08:57 by npineau          ###   ########.fr       */
+/*   Created: 2013/11/20 18:02:49 by gdefrait          #+#    #+#             */
+/*   Updated: 2013/11/20 18:02:51 by gdefrait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serveur.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int		ft_isdigit(int c)
 {
-	(void)argc;
-	(void)argv;
-	ft_putendl("Server on.");
+	if (c >= 48 && c <= 57)
+		return (1);
 	return (0);
 }

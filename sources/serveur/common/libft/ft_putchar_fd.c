@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serveur.c                                          :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gdefrait <gdefrait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/02 18:18:03 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/03 11:08:57 by npineau          ###   ########.fr       */
+/*   Created: 2013/11/20 18:08:32 by gdefrait          #+#    #+#             */
+/*   Updated: 2013/11/20 18:10:26 by gdefrait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serveur.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putchar_fd(char c, int fd)
 {
-	(void)argc;
-	(void)argv;
-	ft_putendl("Server on.");
-	return (0);
+	write(fd, &c, 1);
 }

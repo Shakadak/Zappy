@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serveur.c                                          :+:      :+:    :+:   */
+/*   ft_strlen_const.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gdefrait <gdefrait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/02 18:18:03 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/03 11:08:57 by npineau          ###   ########.fr       */
+/*   Created: 2013/11/20 19:32:50 by gdefrait          #+#    #+#             */
+/*   Updated: 2013/11/20 19:32:52 by gdefrait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serveur.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int			ft_strlen_const(char const *str)
 {
-	(void)argc;
-	(void)argv;
-	ft_putendl("Server on.");
-	return (0);
+	int		i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while ((char)str[i] != '\0')
+		i++;
+	return (i);
 }

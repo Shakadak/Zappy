@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serveur.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gdefrait <gdefrait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/02 18:18:03 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/03 11:08:57 by npineau          ###   ########.fr       */
+/*   Created: 2013/11/20 17:56:49 by gdefrait          #+#    #+#             */
+/*   Updated: 2013/11/20 17:56:58 by gdefrait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serveur.h"
+#include	"libft.h"
 
-int	main(int argc, char **argv)
+void				ft_bzero(void *s, size_t n)
 {
-	(void)argc;
-	(void)argv;
-	ft_putendl("Server on.");
-	return (0);
+	int				i;
+	unsigned char	*str;
+
+	i = n;
+	if (s != NULL && n != 0)
+		str = (unsigned char *)s;
+	while (n > 0 && s != NULL)
+	{
+		str[i - n] = 0;
+		n--;
+	}
 }
