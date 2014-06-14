@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/13 19:33:29 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/14 17:20:02 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ typedef struct		s_env
 	t_sdl			e;
 	int				dir;
 	int				camera[2];
+	pid_t			net_pid;
 	int				zoom;
 	int				tile_h;
 	int				tile_w;

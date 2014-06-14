@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/13 19:32:05 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/14 18:03:27 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,24 @@ int	gfx_core(t_env *gfx)
 	return (0);
 }
 
+int	allocate_map(t_env *gfx)
+{
+	/* mmap the board ! */
+	return (0);
+}
+
 int	get_map_info(t_env *gfx)
 {
 	int		ret;
 
 	ret = recv(gfx->net.sock, gfx->net.buff, READ_BUFF, 0);
 	gfx->net.buff[ret] = '\0';
-	printf("%s\n", gfx->net.buff);
+	printf("[SERVER] : %s\n", gfx->net.buff);
 	send(gfx->net.sock, "GRAPHIC\n", 8, 0);
 	ret = recv(gfx->net.sock, gfx->net.buff, READ_BUFF, 0);
 	gfx->net.buff[ret] = '\0';
-	printf("%s\n", gfx->net.buff);
+	printf("[SERVER] : %s\n", gfx->net.buff);
+	allocate_map(gfx);
 	return (0);
 }
 
@@ -65,7 +72,6 @@ int	main(int argc, char **argv)
 		ft_putendl("usage: ./gfx <ip> <port>");
 		return (1);
 	}
-	sleep(50);
 	gfx.net.ip = argv[1];
 	gfx.net.port = ft_atoi(argv[2]);
 	gfx_net(&gfx);
@@ -76,6 +82,7 @@ int	main(int argc, char **argv)
 		gfx_net_loop(&gfx);
 	else
 	{
+		gfx.net_pid = pid;
 		ft_putendl("GFX on.");
 		init_sdl(&gfx);
 		gfx_core(&gfx);
