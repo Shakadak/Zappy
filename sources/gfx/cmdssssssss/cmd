@@ -1,0 +1,43 @@
+bct X Y q q q q q q q\n
+
+ebo #e\n
+edi #e\n
+eht #e\n
+enw #e #n X Y\n
+
+msz X Y\n
+
+pbc #n M\n
+pdi #n\n
+pdr #n i\n
+pex #n\n
+pfk #n\n
+pgt #n i\n
+pic X Y L #n #n …\n
+pie X Y R\n
+pin #n X Y q q q q q q q\n pin
+plv #n L\n plv #n\n
+pnw #n X Y O L N\n
+ppo #n X Y O\n ppo #n\n
+
+sbp\n
+seg N\n
+sgt T\n
+smg M\n
+suc\n
+
+tna N\n
+
+b
+
+e
+
+m
+
+p
+pd
+pi
+
+s
+
+t
