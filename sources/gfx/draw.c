@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:39 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/14 17:02:48 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/14 22:16:15 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	draw_tiles(t_env *gfx)
 	rc[0].h = gfx->tile_h;
 	rc[1].w = gfx->tile_w + gfx->zoom;
 	rc[1].h = gfx->tile_h + gfx->zoom;
-	min[0] = gfx->camera[0] / rc[1].w - 1;
-	min[1] = gfx->camera[1] / rc[1].h - 1;
+	min[0] = gfx->camera[0] / gfx->tile_w - 1;
 	max[0] = (gfx->camera[0] + WIDTH) / rc[1].w;
 	max[1] = (gfx->camera[1] + HEIGHT) / rc[1].h;
-	while (min[0] <= max[0])
+	while (min[0] <= max[0] && min[0] < gfx->msize[0])
 	{
-		while (min[1] <= max[1])
+		min[1] = gfx->camera[1] / gfx->tile_h - 1;
+		while (min[1] <= max[1] && min[1] < gfx->msize[1])
 		{
 			rc[1].x = min[0] * rc[1].w - gfx->camera[0];
 			rc[1].y = min[1] * rc[1].h - gfx->camera[1];

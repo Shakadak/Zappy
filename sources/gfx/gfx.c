@@ -6,13 +6,14 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/14 18:03:27 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/14 21:04:48 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <signal.h>
 #include <sys/socket.h>
+#include <sys/mman.h>
 #include "gfx.h"
 #include "libft.h"
 
@@ -36,6 +37,24 @@ int	gfx_core(t_env *gfx)
 int	allocate_map(t_env *gfx)
 {
 	/* mmap the board ! */
+	/* get map x and y */
+	/* while i < x * y */
+	/*    get_cell */
+	/* get_teams */
+	/* launch SDL  */
+	char	**cmd;
+	int		x;
+	int		y;
+
+	cmd = ft_strsplit(gfx->net.buff, ' ');
+	x = ft_atoi(cmd[1]);
+	y = ft_atoi(cmd[2]);
+	gfx->g->map = mmap(NULL, (x * y) * sizeof(t_case), PROT_READ | PROT_WRITE,
+			MAP_SHARED | MAP_ANON, -1, 0);
+	printf("%d - %d\n", x, y);
+	gfx->msize[0] = x;
+	gfx->msize[1] = y;
+	ft_split_destroy(cmd);
 	return (0);
 }
 
@@ -75,7 +94,7 @@ int	main(int argc, char **argv)
 	gfx.net.ip = argv[1];
 	gfx.net.port = ft_atoi(argv[2]);
 	gfx_net(&gfx);
-	if (init_shm(&gfx, SHM_SIZE) == 1)
+	if (init_shm(&gfx, sizeof(t_game)) == 1)
 		return (1);
 	pid = fork();
 	if (pid == 0)

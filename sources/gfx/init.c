@@ -6,11 +6,12 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:54:06 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/14 17:43:55 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/14 21:47:54 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
+#include <sys/mman.h>
 #include "gfx.h"
 
 SDL_Texture	*load_texture(t_env *gfx, char *str)
@@ -59,6 +60,7 @@ int			init_sdl(t_env *gfx)
 void		close_sdl(t_env *gfx)
 {
 	kill(gfx->net_pid, SIGTERM);
+//	munmap(gfx->g->map, (gfx->map_w * gfx->map_h) * sizeof(t_case));
 	shm_free(gfx);
 	SDL_DestroyTexture(gfx->e.tiles);
 	SDL_DestroyRenderer(gfx->e.render);

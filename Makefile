@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/08 10:39:32 by npineau           #+#    #+#              #
-#    Updated: 2014/06/04 17:54:36 by jvincent         ###   ########.fr        #
+#    Updated: 2014/06/14 20:56:20 by jvincent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ PSDL		:=	$(DIRSDL)/lib/$(SLIB)
 ### COMPILATION VARIABLES ###
 
 CC		:=	llvm-gcc
-C_FLAG	:=	-Wall -Wextra -Werror
+C_FLAG	:=	-Wall -Wextra -Werror -g
 O_FLAG	:=	-O3
 L_FLAG	:=	-L $(DIRLIB) -lft -L $(DIRSCK) -lftsock \
 			-L $(DIRSDL)/lib -lSDL2 -lSDL2_image
