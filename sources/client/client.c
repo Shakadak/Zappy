@@ -6,13 +6,13 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:18:15 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/02 18:18:21 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/14 20:12:53 by garm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "client.h"
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	(void)argc;
 	(void)argv;

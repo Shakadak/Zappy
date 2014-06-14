@@ -2,5 +2,6 @@
 # define CLIENT_H
 
 # include "libft.h"
+# include "ftsock.h"
 
 #endif
