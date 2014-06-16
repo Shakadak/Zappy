@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 15:29:25 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/16 17:37:11 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/16 17:57:55 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	tna(t_env *gfx, char **param)
 			j = 0;
 			while (j < 256)
 				gfx->g->teams[i]->players[j++] = -2;
-			break ;
+			return ;
 		}
 		i++;
 	}
