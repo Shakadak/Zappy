@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/16 16:11:57 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/16 18:13:33 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,16 @@ typedef struct		s_sdl
 	SDL_Texture		*tiles;
 }					t_sdl;
 
+typedef enum		e_ptype
+{
+	VOID,
+	PLAYER,
+	EGG
+}					t_ptype;
+
 typedef struct		s_player
 {
+	t_ptype			type;
 	int				id;
 	int				x;
 	int				y;
