@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/16 15:58:09 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/16 18:39:59 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	get_cell_info(t_env *gfx)
 	ret = recv(gfx->net.sock, gfx->net.buff, READ_BUFF, 0);
 	printf("Le serveur dit : %s\n", gfx->net.buff);
 	cmd = ft_strsplit(gfx->net.buff, ' ');
-	x = ft_atoi(cmd[1]);
+/*	x = ft_atoi(cmd[1]);
 	y = ft_atoi(cmd[2]);
 	gfx->g->map[y * gfx->msize[0] + x].stones[0] = ft_atoi(cmd[3]);
 	gfx->g->map[y * gfx->msize[0] + x].stones[1] = ft_atoi(cmd[4]);
@@ -53,6 +53,8 @@ void	get_cell_info(t_env *gfx)
 	gfx->g->map[y * gfx->msize[0] + x].stones[4] = ft_atoi(cmd[7]);
 	gfx->g->map[y * gfx->msize[0] + x].stones[5] = ft_atoi(cmd[8]);
 	gfx->g->map[y * gfx->msize[0] + x].food = ft_atoi(cmd[9]);
+*/
+	bct(gfx, cmd);
 	ft_split_destroy(cmd);
 }
 
@@ -68,10 +70,24 @@ int		fill_cells(t_env *gfx)
 		while (i < gfx->msize[0])
 		{
 			get_cell_info(gfx);
-			j++;
+			i++;
 		}
-		i++;
+		j++;
 	}
+	return (0);
+}
+
+int		get_teams(t_env *gfx)
+{
+	char	**cmd;
+	int		ret;
+
+	ret = recv(gfx->net.sock, gfx->net.buff, READ_BUFF, 0);
+	cmd = ft_strsplit(gfx->net.buff, ' ');
+	/*
+	 * end this crap
+	*/
+	ft_split_destroy(cmd);
 	return (0);
 }
 
@@ -91,8 +107,7 @@ int		allocate_map(t_env *gfx)
 	gfx->msize[1] = y;
 	ft_split_destroy(cmd);
 	fill_cells(gfx);
-	/* get_teams */
-	/* launch SDL  */
+/*	get_teams(gfx);*/
 	return (0);
 }
 
