@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/14 21:04:48 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/16 15:58:09 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "gfx.h"
 #include "libft.h"
 
-int	gfx_core(t_env *gfx)
+int		gfx_core(t_env *gfx)
 {
 	SDL_Event	ev;
 	int			quit;
@@ -34,14 +34,49 @@ int	gfx_core(t_env *gfx)
 	return (0);
 }
 
-int	allocate_map(t_env *gfx)
+void	get_cell_info(t_env *gfx)
 {
-	/* mmap the board ! */
-	/* get map x and y */
-	/* while i < x * y */
-	/*    get_cell */
-	/* get_teams */
-	/* launch SDL  */
+	char	**cmd;
+	int		ret;
+	int		x;
+	int		y;
+
+	ret = recv(gfx->net.sock, gfx->net.buff, READ_BUFF, 0);
+	printf("Le serveur dit : %s\n", gfx->net.buff);
+	cmd = ft_strsplit(gfx->net.buff, ' ');
+	x = ft_atoi(cmd[1]);
+	y = ft_atoi(cmd[2]);
+	gfx->g->map[y * gfx->msize[0] + x].stones[0] = ft_atoi(cmd[3]);
+	gfx->g->map[y * gfx->msize[0] + x].stones[1] = ft_atoi(cmd[4]);
+	gfx->g->map[y * gfx->msize[0] + x].stones[2] = ft_atoi(cmd[5]);
+	gfx->g->map[y * gfx->msize[0] + x].stones[3] = ft_atoi(cmd[6]);
+	gfx->g->map[y * gfx->msize[0] + x].stones[4] = ft_atoi(cmd[7]);
+	gfx->g->map[y * gfx->msize[0] + x].stones[5] = ft_atoi(cmd[8]);
+	gfx->g->map[y * gfx->msize[0] + x].food = ft_atoi(cmd[9]);
+	ft_split_destroy(cmd);
+}
+
+int		fill_cells(t_env *gfx)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	while (j < gfx->msize[1])
+	{
+		i = 0;
+		while (i < gfx->msize[0])
+		{
+			get_cell_info(gfx);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int		allocate_map(t_env *gfx)
+{
 	char	**cmd;
 	int		x;
 	int		y;
@@ -55,10 +90,13 @@ int	allocate_map(t_env *gfx)
 	gfx->msize[0] = x;
 	gfx->msize[1] = y;
 	ft_split_destroy(cmd);
+	fill_cells(gfx);
+	/* get_teams */
+	/* launch SDL  */
 	return (0);
 }
 
-int	get_map_info(t_env *gfx)
+int		get_map_info(t_env *gfx)
 {
 	int		ret;
 
@@ -73,7 +111,7 @@ int	get_map_info(t_env *gfx)
 	return (0);
 }
 
-int	gfx_net(t_env *gfx)
+int		gfx_net(t_env *gfx)
 {
 	if ((gfx->net.sock = create_client(gfx->net.ip, gfx->net.port, gfx)) == -1)
 		return (-1);
@@ -81,7 +119,7 @@ int	gfx_net(t_env *gfx)
 	return (0);
 }
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_env	gfx;
 	pid_t	pid;

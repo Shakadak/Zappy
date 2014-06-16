@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/14 21:57:14 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/16 15:32:08 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ typedef struct		s_net
 
 typedef struct		s_case
 {
-	char			stones[6];
-	char			food;
+	int				stones[6];
+	int				food;
 }					t_case;
 
 typedef struct		s_game
