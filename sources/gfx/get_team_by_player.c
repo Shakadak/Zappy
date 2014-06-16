@@ -6,11 +6,11 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 18:15:07 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/16 18:53:13 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/16 18:52:58 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_player	*get_player(t_env *gfx, int id, char *team, t_ptype type)
+char	*get_team(t_env *gfx, int id, t_ptype type)
 {
 	int			i;
 	int			j;
@@ -24,15 +24,12 @@ t_player	*get_player(t_env *gfx, int id, char *team, t_ptype type)
 		{
 			if (gfx->g->teams[i]->players[j]->type == type)
 			{
-				current = gfx->g->team[i]->players[j];
-				if (type == VOID && ft_strequ(team, gfx->g->teams[i]->name))
-					return (current);
-				if (type != VOID && current->id == id)
-					return (current);
+				if (gfx->g->team[i]->players[j]->id == id)
+					return (gfx->g->teams[i]->name);
 			}
-			i++;
+			j++;
 		}
-		j++;
+		i++;
 	}
 	return (NULL);
 }
