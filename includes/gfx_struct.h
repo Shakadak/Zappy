@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/14 21:57:14 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/16 15:10:07 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ typedef struct		s_game
 	int				nb_players;
 	int				nb_team;
 	t_team			teams[256];
+	int				time;
 }					t_game;
 
 typedef struct		s_shm
