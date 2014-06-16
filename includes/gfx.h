@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:52:56 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/13 17:58:44 by jibanez          ###   ########.fr       */
+/*   Updated: 2014/06/16 17:15:14 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GFX_H
 
 # include "gfx_net.h"
+# include "gfx_cmds.h"
 
 /*
 ** gfx.c

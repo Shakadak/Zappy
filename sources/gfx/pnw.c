@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 15:39:12 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/16 16:06:36 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/16 17:58:23 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void		pnw(t_env *gfx, char **param)
 		if (ft_strequ(gfx->g->teams[i]->name, param[6]))
 		{
 			create_player(gfx->g->team[i]->players, param);
-			break ;
+			return ;
 		}
 		i++;
 	}
