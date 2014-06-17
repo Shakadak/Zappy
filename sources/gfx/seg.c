@@ -6,7 +6,7 @@
 /*   By: jibanez <jibanez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/17 16:46:54 by jibanez           #+#    #+#             */
-/*   Updated: 2014/06/17 16:47:38 by jibanez          ###   ########.fr       */
+/*   Updated: 2014/06/17 16:52:13 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	seg(t_env *gfx, char **param)
 {
-	gfx->g.winner = param[1];
+	gfx->g.winner = ft_strdup(param[1]);
 }
