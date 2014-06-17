@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/16 18:39:59 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/17 15:32:02 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	get_cell_info(t_env *gfx)
 {
 	char	**cmd;
 	int		ret;
-	int		x;
-	int		y;
+//	int		x;
+//	int		y;
 
 	ret = recv(gfx->net.sock, gfx->net.buff, READ_BUFF, 0);
 	printf("Le serveur dit : %s\n", gfx->net.buff);

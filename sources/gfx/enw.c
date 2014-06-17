@@ -6,7 +6,7 @@
 /*   By: jibanez <jibanez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 17:35:19 by jibanez           #+#    #+#             */
-/*   Updated: 2014/06/16 18:53:11 by jibanez          ###   ########.fr       */
+/*   Updated: 2014/06/17 16:18:25 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ void	enw(t_env *gfx, char **param)
 	egg->id = ft_atoi(param[1]);
 	egg->x = ft_atoi(param[3]);
 	egg->y = ft_atoi(param[4]);
+	egg->level = 0;
 }
