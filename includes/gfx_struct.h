@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/16 18:13:33 by jibanez          ###   ########.fr       */
+/*   Updated: 2014/06/17 16:20:27 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,20 @@ typedef struct		s_sdl
 	SDL_Texture		*tiles;
 }					t_sdl;
 
+typedef	enum		e_act
+{
+	VOID,
+	GET,
+	DROP,
+	INCANT,
+	SUCCESS,
+	FAIL,
+	LAY,
+	DIE,
+	BROADCAST,
+	EXPULSE
+}					t_act;
+
 typedef enum		e_ptype
 {
 	VOID,
@@ -62,6 +76,7 @@ typedef struct		s_player
 	int				level;
 	int				food;
 	int				stones[6];
+	t_act			action;
 }					t_player;
 
 typedef struct		s_team
@@ -83,6 +98,7 @@ typedef struct		s_case
 {
 	int				stones[6];
 	int				food;
+	t_act			action;
 }					t_case;
 
 typedef struct		s_game
