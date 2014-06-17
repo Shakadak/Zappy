@@ -6,13 +6,13 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/14 18:17:36 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/17 12:48:25 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/17 17:21:35 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gfx_cmds.h"
 
-void	get_pd(char *cmd)
+void	*get_pd(char *cmd)
 {
 	if (*cmd == 'i')
 		return (pdi);
@@ -21,7 +21,7 @@ void	get_pd(char *cmd)
 	return (NULL);
 }
 
-void	get_pi(char *cmd)
+void	*get_pi(char *cmd)
 {
 	if (*cmd == 'c')
 		return (pdi);

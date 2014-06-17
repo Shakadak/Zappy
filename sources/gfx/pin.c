@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/17 12:28:03 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/17 12:53:17 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/17 17:12:09 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	pin(t_env *gfx, char **param)
 	int			i;
 	t_player	*current;
 
-	current = get_player(gfx, ft_atoi(param[1]));
+	current = get_player(gfx, ft_atoi(param[1]), 0, PLAYER);
 	current->x = ft_atoi(param[2]);
 	current->y = ft_atoi(param[3]);
 	current->food = ft_atoi(param[4]);
@@ -27,5 +27,4 @@ void	pin(t_env *gfx, char **param)
 		current->stones[i] = ft_atoi(param[i + 5]);
 		i++;
 	}
-
 }

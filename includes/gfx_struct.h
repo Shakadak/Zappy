@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/17 16:44:41 by jibanez          ###   ########.fr       */
+/*   Updated: 2014/06/17 16:58:36 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct		s_sdl
 
 typedef	enum		e_act
 {
-	VOID,
+	NONE,
 	GET,
 	DROP,
 	INCANT,

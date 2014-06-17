@@ -4,8 +4,10 @@
 # include "gfx_struct.h"
 
 void		*get_x(char *cmd);
-void		*get_p(char *cmd);
+void		*get_pd(char *cmd);
+void		*get_pi(char *cmd);
 t_player	*get_player(t_env *gfx, int id, char *team, t_ptype type);
+char		*get_team(t_env *gfx, int id, t_ptype type);
 
 void		bct(t_env *gfx, char **param);
 

@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/14 17:36:36 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/17 12:49:34 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/17 17:19:53 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*get_e(char *cmd)
 		return (eht);
 	if (*cmd == 'n')
 		return (enw);
-	return (NULL)
+	return (NULL);
 }
 
 void	*get_p(char *cmd)
@@ -45,7 +45,7 @@ void	*get_p(char *cmd)
 		return (pnw);
 	if (*cmd == 'p')
 		return (ppo);
-	return (NULL)
+	return (NULL);
 }
 
 void	*get_s(char *cmd)
@@ -60,7 +60,7 @@ void	*get_s(char *cmd)
 		return (smg);
 	if (*cmd == 'u')
 		return (suc);
-	return (NULL)
+	return (NULL);
 }
 
 void	*get_x(char *cmd)
@@ -77,5 +77,5 @@ void	*get_x(char *cmd)
 		return (get_s(cmd + 1));
 	if (*cmd == 't')
 		return (tna);
-	return (NULL)
+	return (NULL);
 }

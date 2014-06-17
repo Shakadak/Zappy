@@ -6,7 +6,7 @@
 /*   By: jibanez <jibanez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 17:25:38 by jibanez           #+#    #+#             */
-/*   Updated: 2014/06/17 12:51:47 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/17 17:09:06 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	pfk(t_env *gfx, char **param)
 {
-	get_player(gfx, ft_atoi(param[1]), NULL, PLAYER)->action = EGGING; /*lolol*/
+	get_player(gfx, ft_atoi(param[1]), NULL, PLAYER)->action = LAY;
 }

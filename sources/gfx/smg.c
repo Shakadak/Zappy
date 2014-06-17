@@ -6,9 +6,11 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/17 16:55:01 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/17 16:55:02 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/17 17:05:04 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "gfx.h"
 
 void	smg(t_env *gfx, char **param)
 {
