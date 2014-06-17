@@ -6,9 +6,11 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/17 12:28:03 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/17 12:33:22 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/17 12:53:17 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "gfx.h"
 
 void	pin(t_env *gfx, char **param)
 {
@@ -22,7 +24,7 @@ void	pin(t_env *gfx, char **param)
 	i = 0;
 	while (i < 6)
 	{
-		cell->stones[i] = ft_atoi(param[i + 5]);
+		current->stones[i] = ft_atoi(param[i + 5]);
 		i++;
 	}
 

@@ -6,9 +6,11 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 18:15:07 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/16 18:53:13 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/17 12:48:34 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "gfx.h"
 
 t_player	*get_player(t_env *gfx, int id, char *team, t_ptype type)
 {

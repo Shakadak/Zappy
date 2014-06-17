@@ -6,9 +6,11 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 14:55:04 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/17 12:20:18 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/17 12:47:38 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "gfx.h"
 
 void	ebo(t_env *gfx, char **param)
 {

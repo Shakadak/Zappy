@@ -6,9 +6,11 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 18:15:07 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/16 18:52:58 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/17 12:48:42 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "gfx.h"
 
 char	*get_team(t_env *gfx, int id, t_ptype type)
 {

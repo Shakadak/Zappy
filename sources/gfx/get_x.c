@@ -6,11 +6,13 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/14 17:36:36 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/14 18:23:00 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/17 12:49:34 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*get_xe(char *cmd)
+#include "gfx_cmds.h"
+
+void	*get_e(char *cmd)
 {
 	if (*cmd == 'b')
 		return (ebo);

@@ -6,9 +6,11 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 17:42:19 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/17 12:10:19 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/17 13:01:07 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "gfx.h"
 
 void	ppo(t_env *gfx, char **param)
 {
