@@ -6,7 +6,7 @@
 /*   By: jibanez <jibanez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/11 18:33:04 by jibanez           #+#    #+#             */
-/*   Updated: 2014/06/14 20:41:00 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/17 17:25:47 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int			init_shm(t_env *gfx, int size)
 
 int			shm_free(t_env *gfx)
 {
-	struct	shmid_ds	buff;
+	struct shmid_ds	buff;
 
 	shmdt(gfx->shm.shm);
 	shmctl(gfx->shm.shmid, IPC_RMID, &buff);

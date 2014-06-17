@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/17 16:58:36 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/17 17:27:01 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ typedef struct		s_net
 	char			*ip;
 	int				port;
 	int				sock;
-	char			buff[READ_BUFF +1];
+	char			buff[READ_BUFF + 1];
 	fd_set			readfds;
 }					t_net;
 
