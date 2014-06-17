@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/17 15:32:02 by jibanez          ###   ########.fr       */
+/*   Updated: 2014/06/17 16:44:04 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ int		gfx_net(t_env *gfx)
 	if ((gfx->net.sock = create_client(gfx->net.ip, gfx->net.port, gfx)) == -1)
 		return (-1);
 	get_map_info(gfx);
+	gfx->g->winner = NULL;
 	return (0);
 }
 
