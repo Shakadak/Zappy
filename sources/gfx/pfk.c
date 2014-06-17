@@ -6,10 +6,13 @@
 /*   By: jibanez <jibanez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 17:25:38 by jibanez           #+#    #+#             */
-/*   Updated: 2014/06/16 17:34:59 by jibanez          ###   ########.fr       */
+/*   Updated: 2014/06/17 12:26:24 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	pfk(t_env *gfx, char **param)
 {
+	t_player	*egger;
+
+	egger = get_player(gfx, ft_atoi(param[1]), NULL, PLAYER);
 }
