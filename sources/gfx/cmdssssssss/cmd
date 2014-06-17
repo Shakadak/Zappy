@@ -1,43 +1,24 @@
-bct X Y q q q q q q q\n
-
-ebo #e\n
-edi #e\n
-eht #e\n
-enw #e #n X Y\n
-
-msz X Y\n
-
-pbc #n M\n
-pdi #n\n
-pdr #n i\n
-pex #n\n
-pfk #n\n
-pgt #n i\n
-pic X Y L #n #n …\n
-pie X Y R\n
-pin #n X Y q q q q q q q\n pin
-plv #n L\n plv #n\n
-pnw #n X Y O L N\n
-ppo #n X Y O\n ppo #n\n
-
-sbp\n
-seg N\n
-sgt T\n
-smg M\n
-suc\n
-
-tna N\n
-
-b
-
-e
-
-m
-
-p
-pd
-pi
-
-s
-
-t
+bct.c
+ebo.c
+edi.c
+eht.c
+enw.c
+msz.c
+pbc.c
+pdi.c
+pdr.c
+pex.c
+pfk.c
+pgt.c
+pic.c
+pie.c
+pin.c
+plv.c
+pnw.c
+ppo.c
+sbp.c
+seg.c
+sgt.c
+smg.c
+suc.c
+tna.c
