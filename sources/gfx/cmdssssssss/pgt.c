@@ -1,3 +1,3 @@
-void	bct(t_env *gfx, char **param)
+void	pgt(t_env *gfx, char **param)
 {
 }
