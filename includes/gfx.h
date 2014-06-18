@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:52:56 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/16 17:15:14 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/18 18:11:04 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 
 # include "gfx_net.h"
 # include "gfx_cmds.h"
+
+/*
+** get_info.c
+*/
+void		get_cell_info(t_env *gfx);
+int			fill_cells(t_env *gfx);
+int			get_teams(t_env *gfx);
+int			allocate_map(t_env *gfx);
+int			get_map_info(t_env *gfx);
 
 /*
 ** gfx.c

@@ -6,13 +6,13 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 18:15:07 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/17 17:18:32 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/18 18:34:01 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gfx.h"
 
-t_player	*get_player(t_env *gfx, int id, char *team, t_ptype type)
+t_player	*get_player(t_env *gfx, int id, char *t, t_ptype type)
 {
 	int			i;
 	int			j;
@@ -24,10 +24,10 @@ t_player	*get_player(t_env *gfx, int id, char *team, t_ptype type)
 		j = 0;
 		while (j < 256)
 		{
-			if (gfx->g->teams[i].players[j].type == type)
+			if (gfx->shm.shm->teams[i].players[j].type == type)
 			{
-				current = gfx->g->teams[i].players + j;
-				if (type == VOID && ft_strequ(team, gfx->g->teams[i].name))
+				current = gfx->shm.shm->teams[i].players + j;
+				if (type == VOID && ft_strequ(t, gfx->shm.shm->teams[i].name))
 					return (current);
 				if (type != VOID && current->id == id)
 					return (current);

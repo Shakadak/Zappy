@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 14:54:47 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/17 16:59:44 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/18 18:05:07 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	bct(t_env *gfx, char **param)
 	t_case	*cell;
 
 	pos = ft_atoi(param[1]) + gfx->msize[0] * ft_atoi(param[2]);
-	cell = gfx->g->map + pos;
+	cell = gfx->shm.shm->map + pos;
 	cell->food = ft_atoi(param[3]);
 	pos = 0;
 	while (pos < 6)

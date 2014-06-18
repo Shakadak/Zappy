@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/17 17:27:01 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/18 18:29:54 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # define RIGHT		0x08
 # define SHM_SIZE	4096
 # define READ_BUFF	4096
+# define CASE_SIZE	(sizeof(t_case))
 
 typedef struct		s_sdl
 {
@@ -115,7 +116,7 @@ typedef struct		s_shm
 {
 	int				shmid;
 	int				semid;
-	void			*shm;
+	t_game			*shm;
 }					t_shm;
 
 typedef struct		s_env
@@ -133,7 +134,6 @@ typedef struct		s_env
 	int				s_speed;
 	t_net			net;
 	t_shm			shm;
-	t_game			*g;
 }					t_env;
 
 #endif

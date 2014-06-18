@@ -6,7 +6,7 @@
 /*   By: jibanez <jibanez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/11 18:33:04 by jibanez           #+#    #+#             */
-/*   Updated: 2014/06/17 17:25:47 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/18 17:59:55 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int			init_shm(t_env *gfx, int size)
 		return (ft_error("ftok: can't get key"));
 	if ((gfx->shm.shmid = shmget(key, size, IPC_CREAT | 0644)) == -1)
 		return (ft_error("shmget: can't get shmid"));
-	if ((gfx->shm.shm = shmat(gfx->shm.shmid, 0, 0)) == (char *)(-1))
+	if ((void *)(gfx->shm.shm = shmat(gfx->shm.shmid, 0, 0)) == (char *)(-1))
 		return (ft_error("shmatt: can't map the shared memory"));
 	ft_memset(gfx->shm.shm, 0, size);
 	gfx->shm.semid = semget(key, 1, IPC_EXCL | IPC_CREAT | 0644);

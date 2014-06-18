@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/17 16:00:13 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/17 17:06:57 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/18 18:12:51 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	pdr(t_env *gfx, char **param)
 	t_case		*cell;
 
 	current = get_player(gfx, ft_atoi(param[1]), 0, PLAYER);
-	cell = gfx->g->map + (current->x + current->y * gfx->msize[1]);
+	cell = gfx->shm.shm->map + (current->x + current->y * gfx->msize[1]);
 	if (ft_atoi(param[2]) == 0)
 	{
 		current->food--;
