@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:54:06 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/19 16:28:41 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/19 18:20:23 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int			init_sdl(t_env *gfx)
 	gfx->camera[1] = 0;
 	gfx->s_speed = 1;
 	gfx->zoom = 1;
-	gfx->tile_w = 40;
-	gfx->tile_h = 40;
+	gfx->tile_w = 64;
+	gfx->tile_h = 64;
 	gfx->dir = 0;
 	return (0);
 }

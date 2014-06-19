@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 14:54:47 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/19 16:25:08 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/19 18:26:53 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ void	bct(t_env *gfx, char **param)
 		cell->stones[pos] = ft_atoi(param[pos + 4]);
 		pos++;
 	}
-	printf("%d\n", gfx->shm.shm->map[0].stones[2]);
 }
