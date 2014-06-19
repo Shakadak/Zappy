@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:39 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/14 22:16:15 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/19 16:06:49 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,28 @@ void	draw_menu(t_env *gfx)
 	SDL_RenderDrawRect(gfx->e.render, &rcdest);
 }
 
+void	render_stone(void)
+{
+	return ;
+}
+
+void	draw_stones(t_env *gfx, int x, int y)
+{
+	int	i;
+
+	i = 0;
+	while (i < 6)
+	{
+		if (gfx->shm.shm->map[y * gfx->msize[0] + x].stones[i] != 0)
+			render_stone();
+		i++;
+	}
+}
+
 void	draw_tile(t_env *gfx, SDL_Rect rc[2], int x, int y)
 {
-	(void)x;
-	(void)y;
 	SDL_RenderCopy(gfx->e.render, gfx->e.tiles, &rc[0], &rc[1]);
+	draw_stones(gfx, x, y);
 }
 
 void	draw_tiles(t_env *gfx)

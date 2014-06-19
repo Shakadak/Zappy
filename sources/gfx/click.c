@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/11 18:18:15 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/17 12:47:25 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/19 16:08:46 by jvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,8 @@ void	click_event(t_env *gfx)
 	if ((event = is_clickable(gfx, x, y)) >= 0)
 		handle_click_event(gfx, event);
 	printf("%d - %d\n", x, y);
+	int	xcase, ycase;
+	xcase = (gfx->camera[0] + x) / gfx->tile_w;
+	ycase = (gfx->camera[1] + y) / gfx->tile_h;
+	printf("%d - %d\n", xcase, ycase);
 }
