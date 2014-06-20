@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/18 18:31:38 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/20 17:51:09 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/20 18:48:07 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int		allocate_map(t_env *gfx)
 			PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANON, -1, 0);
 	ft_split_destroy(cmd);
 	ft_bzero(gfx->net.buff, READ_BUFF);
-	fill_cells(gfx);
+	//fill_cells(gfx);
 	return (0);
 }
 
