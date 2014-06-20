@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:54:06 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/19 18:20:23 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/20 14:46:40 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ SDL_Texture	*load_texture(t_env *gfx, char *str)
 int			init_tiles(t_env *gfx)
 {
 	gfx->e.tiles = load_texture(gfx, "img/tiles.png");
+	gfx->e.stones = load_texture(gfx, "img/ministone.png");
 	return (0);
 }
 

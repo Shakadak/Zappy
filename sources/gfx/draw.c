@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:39 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/19 18:52:36 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/20 14:47:13 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	draw_menu(t_env *gfx)
 	SDL_RenderDrawRect(gfx->e.render, &rcdest);
 	SDL_SetRenderDrawColor(gfx->e.render, 0xCE, 0xCE, 0xCE, 0xFF);
 }
+
+#define TYPE rand()
 
 void	render_stone(t_env *gfx, int i, SDL_Rect tile)
 {

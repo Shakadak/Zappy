@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/19 15:58:42 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/20 14:46:59 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct		s_sdl
 	SDL_Renderer	*render;
 	SDL_Texture		*board;
 	SDL_Texture		*tiles;
+	SDL_Texture		*stones;
 }					t_sdl;
 
 typedef	enum		e_act
