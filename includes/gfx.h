@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:52:56 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/18 18:11:04 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/22 16:49:12 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ int			gfx_core(t_env *gfx);
 */
 void		draw_menu(t_env *gfx);
 void		draw_board(t_env *gfx);
+
+/*
+** draw_*.c
+*/
+void	draw_entity(t_env *gfx);
+void	draw_move(t_env *gfx, t_player p);
 
 /*
 ** event.c

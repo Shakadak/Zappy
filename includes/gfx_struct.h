@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/20 14:46:59 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/22 16:32:26 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,9 @@ typedef	enum		e_act
 	LAY,
 	DIE,
 	BROADCAST,
-	EXPULSE
+	EXPULSE,
+	MOVE,
+	TURN
 }					t_act;
 
 typedef enum		e_ptype
@@ -75,6 +77,7 @@ typedef struct		s_player
 	int				id;
 	int				x;
 	int				y;
+	int				dir;
 	int				level;
 	int				food;
 	int				stones[6];
