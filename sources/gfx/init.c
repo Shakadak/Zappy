@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:54:06 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/20 14:46:40 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/23 16:48:50 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int			init_tiles(t_env *gfx)
 {
 	gfx->e.tiles = load_texture(gfx, "img/tiles.png");
 	gfx->e.stones = load_texture(gfx, "img/ministone.png");
+	gfx->e.player = load_texture(gfx, "img/player.png");
 	return (0);
 }
 
@@ -37,8 +38,6 @@ int			init_sdl(t_env *gfx)
 {
 	int	img_flag;
 
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
-		return (ft_error("SDL_Init failed."));
 	gfx->e.win = SDL_CreateWindow("ZAPPY", SDL_WPU, SDL_WPU, WIDTH, HEIGHT, FS);
 	if (gfx->e.win == NULL)
 		return (ft_error("Can't create window."));
@@ -66,5 +65,4 @@ void		close_sdl(t_env *gfx)
 	SDL_DestroyTexture(gfx->e.tiles);
 	SDL_DestroyRenderer(gfx->e.render);
 	SDL_DestroyWindow(gfx->e.win);
-	SDL_Quit();
 }

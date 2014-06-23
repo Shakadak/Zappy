@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/22 16:32:26 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/23 16:07:26 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,27 @@
 # define READ_BUFF	4096
 # define CASE_SIZE	(sizeof(t_case))
 
+typedef enum		e_dir
+{
+	NORTH = 1,
+	EAST = 2,
+	SOUTH = 3,
+	WEST = 4,
+}					t_dir;
+
+typedef enum		e_coo
+{
+	X,
+	Y
+}					t_coo;
+
 typedef struct		s_sdl
 {
 	SDL_Window		*win;
 	SDL_Renderer	*render;
 	SDL_Texture		*board;
 	SDL_Texture		*tiles;
+	SDL_Texture		*player;
 	SDL_Texture		*stones;
 }					t_sdl;
 
@@ -77,10 +92,11 @@ typedef struct		s_player
 	int				id;
 	int				x;
 	int				y;
-	int				dir;
+	t_dir			dir;
 	int				level;
 	int				food;
 	int				stones[6];
+	unsigned int	time;
 	t_act			action;
 }					t_player;
 

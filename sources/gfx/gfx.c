@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/19 14:39:52 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/23 16:22:18 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ int		main(int argc, char **argv)
 	if (init_shm(&gfx, sizeof(t_game)) == 1)
 		return (1);
 	gfx_net(&gfx);
+	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+		return (ft_error("SDL_Init failed."));
 	pid = fork();
 	if (pid == 0)
 		gfx_net_loop(&gfx);
@@ -65,5 +67,6 @@ int		main(int argc, char **argv)
 		gfx_core(&gfx);
 		close_sdl(&gfx);
 	}
+	SDL_Quit();
 	return (0);
 }

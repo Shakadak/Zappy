@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:52:56 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/22 16:49:12 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/23 16:50:14 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ int			allocate_map(t_env *gfx);
 int			get_map_info(t_env *gfx);
 
 /*
+** get_id.c
+*/
+int			get_id(char *id);
+/*
 ** gfx.c
 */
 int			gfx_core(t_env *gfx);
@@ -40,8 +44,11 @@ void		draw_board(t_env *gfx);
 ** draw_*.c
 */
 void	draw_entity(t_env *gfx);
-void	draw_move(t_env *gfx, t_player p);
-
+void	draw_player(t_env *gfx, t_player *p);
+void	draw_move(t_env *gfx, t_player *p);
+void	draw_none(t_env *gfx, t_player *p);
+void	get_player_text(t_env *gfx, t_player *p, SDL_Rect *zone, int tick);
+void	get_limit(t_env *gfx, SDL_Rect *limit);
 /*
 ** event.c
 */

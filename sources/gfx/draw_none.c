@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ppo.c                                              :+:      :+:    :+:   */
+/*   draw_none.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/16 17:42:19 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/23 16:48:01 by npineau          ###   ########.fr       */
+/*   Created: 2014/06/23 15:25:49 by npineau           #+#    #+#             */
+/*   Updated: 2014/06/23 15:38:22 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gfx.h"
 
-void	ppo(t_env *gfx, char **param)
+void	draw_none(t_env *gfx, t_player *p)
 {
-	t_player	*current;
-	int			pos[2];
+	SDL_Rect		zone[2];
+	unsigned int	tick;
+	SDL_Rect		limit;
 
-	current = get_player(gfx, get_id(param[1]), NULL, PLAYER);
-	pos[0] = current->x;
-	pos[1] = current->y;
-	current->x = ft_atoi(param[2]);
-	current->y = ft_atoi(param[3]);
-	current->dir = ft_atoi(param[4]);
-	if (pos[0] != current->x || pos[1] != current->y)
-	{
-		current->action = MOVE;
-		current->time = SDL_GetTicks() + (7 * 1000) / gfx->shm.shm->time;
-	}
+	tick = SDL_GetTicks();
+	get_player_text(gfx, p, zone, tick % 1000);
+	get_limit(gfx, &limit);
+	if (p->x < limit.x || p->x > limit.w || p->y < limit.y || p->y > limit.h)
+		return ;
+	SDL_RenderCopy(gfx->e.render, gfx->e.player, &zone[0], &zone[1]);
 }
