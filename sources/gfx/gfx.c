@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/23 16:22:18 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/23 17:19:52 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,16 @@ int		gfx_net(t_env *gfx)
 	return (0);
 }
 
-int		main(int argc, char **argv)
+int		base(char **argv)
 {
 	t_env	gfx;
 	pid_t	pid;
 
-	if (argc != 3)
-	{
-		ft_putendl("usage: ./gfx <ip> <port>");
-		return (1);
-	}
 	gfx.net.ip = argv[1];
 	gfx.net.port = ft_atoi(argv[2]);
 	if (init_shm(&gfx, sizeof(t_game)) == 1)
 		return (1);
 	gfx_net(&gfx);
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
-		return (ft_error("SDL_Init failed."));
 	pid = fork();
 	if (pid == 0)
 		gfx_net_loop(&gfx);
@@ -67,6 +60,21 @@ int		main(int argc, char **argv)
 		gfx_core(&gfx);
 		close_sdl(&gfx);
 	}
-	SDL_Quit();
 	return (0);
+}
+
+int		main(int argc, char **argv)
+{
+	int	exit;
+
+	if (argc != 3)
+	{
+		ft_putendl("usage: ./gfx <ip> <port>");
+		return (1);
+	}
+	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+		return (ft_error("SDL_Init failed."));
+	exit = base(argv);
+	SDL_Quit();
+	return (exit);
 }
