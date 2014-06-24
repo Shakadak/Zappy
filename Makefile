@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/08 10:39:32 by npineau           #+#    #+#              #
-#    Updated: 2014/06/04 13:00:19 by npineau          ###   ########.fr        #
+#    Updated: 2014/06/24 18:46:56 by garm             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,10 @@ C_INC	:=	-I $(DIRINC) -I $(DIRLIB)/$(DIRINC) \
 COMPIL	=	$(CC) -o $@ -c $< $(C_INC) $(C_FLAG) $(O_FLAG)
 LINK	=	$(CC) -o $@ $^ $(L_FLAG)
 
+COMPILCLIENT = $(CC) -o $@ -c $< -I $(DIRINC) -I $(DIRLIB)/$(DIRINC) \
+			   -I $(DIRSCK)/includes/ $(C_FLAG)
+LINKCLIENT = $(CC) -o $@ $^ -L $(DIRLIB) -lft -L $(DIRSCK) -lftsock
+
 ### RULES ###
 
 .PHONY: all clean fclean re
@@ -113,7 +117,7 @@ $(POBJCLI): |$(DIROBJ)
 $(POBJGFX): |$(DIROBJ)
 
 $(DIROBJ)/%.o: $(DIRCLI)/%.c $(PHEADCLI)
-	$(COMPIL)
+	$(COMPILCLIENT)
 
 $(DIROBJ)/%.o: $(DIRSRV)/%.c $(PHEADSRV)
 	$(COMPIL)
@@ -127,7 +131,7 @@ $(NAME):
 	echo $(NAME)
 
 $(CLIENT): $(POBJCLI)
-	$(LINK)
+	$(LINKCLIENT)
 
 $(SERVEUR): $(POBJSRV)
 	$(LINK)

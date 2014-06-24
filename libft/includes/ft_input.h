@@ -6,14 +6,14 @@
 /*   By: garm <garm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 21:41:35 by garm              #+#    #+#             */
-/*   Updated: 2014/05/22 11:19:47 by garm             ###   ########.fr       */
+/*   Updated: 2014/06/24 16:07:41 by garm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_INPUT_H
 # define FT_INPUT_H
 
-# define BUFF_SIZE 1
+# define BUFF_SIZE 4096
 
 # include "get_next_line.h"
 
