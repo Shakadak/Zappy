@@ -33,7 +33,26 @@ OBJ1 =		server_/check_fd.o \
 			server_/x.o \
 			server_/command.o \
 			server_/command_.o \
-			server_/functions.o \
+			server_/actions.o \
+			server_/actions_.o \
+			server_/actions__.o \
+			server_/actions___.o \
+			server_/actions____.o \
+			server_/actions_____.o \
+			server_/actions______.o \
+			server_/actions_______.o \
+			server_/actions________.o \
+			server_/actions_________.o \
+			server_/add_args.o \
+			server_/check_cases.o \
+			server_/check_pl.o \
+			server_/g_update.o \
+			server_/load_function.o \
+			server_/look_on_case.o \
+			server_/see.o \
+			server_/serv_update.o \
+			server_/utils_.o \
+			server_/init.o \
 			common/libft/ft_atoi.o \
 			common/libft/ft_memdel.o \
 			common/libft/ft_strcmp.o \

@@ -187,6 +187,8 @@ t_alpha						*recnm(struct s_alpha *alpha,
 int							is_capable(int c);
 int							is_scapable(int c);
 char						*getval(char *val);
+char						*ft_straddrp(char *s1, char *s2);
+int							lenuntil(char *str, char c);
 
 #endif
 

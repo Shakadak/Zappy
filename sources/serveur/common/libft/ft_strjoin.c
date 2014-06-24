@@ -80,3 +80,44 @@ char		*ft_stradd(char *s1, const char *s2)
 	}
 	return (ft_stradd_(s1, join, s2, i));
 }
+
+static char	*ft_straddrp_(char *s1, char *join, char *s2, int i)
+{
+	int		n;
+
+	n = 0;
+	while ((char)s2[n] != '\0')
+	{
+		join[i] = (char)s2[n];
+		join[i + 1] = '\0';
+		i++;
+		n++;
+	}
+	if (s1 != NULL)
+		ft_memdel((void **)&s1);
+	if (s2 != NULL)
+		ft_memdel((void **)&s2);
+	return (join);
+}
+
+char		*ft_straddrp(char *s1, char *s2)
+{
+	int		i;
+	char	*join;
+
+	i = 0;
+	if (s2 == NULL)
+		return (NULL);
+	join = (char *)malloc(sizeof(char)
+		* (ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1));
+	if (s1 != NULL)
+	{
+		while ((char)s1[i] != '\0')
+		{
+			join[i] = (char)s1[i];
+			join[i + 1] = '\0';
+			i++;
+		}
+	}
+	return (ft_straddrp_(s1, join, s2, i));
+}

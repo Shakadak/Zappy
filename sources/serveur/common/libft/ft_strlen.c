@@ -43,3 +43,13 @@ size_t		ft_sstrlen(char **sstr)
 	}
 	return (len);
 }
+
+int			lenuntil(char *str, char c)
+{
+	int		i;
+
+	i = 0;
+	while (str[i] != '\0' && str[i] != c)
+		i++;
+	return (i);
+}

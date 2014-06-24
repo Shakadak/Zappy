@@ -22,7 +22,7 @@
 # define			BEGINING_PL 12
 # define			WACT 10
 # define			GENE_TIME 4
-# define			START_FOOD 200
+# define			START_FOOD 80
 # define			FD_FREE	0
 # define			EGG_TIME 600
 # define			FD_SERV	1
@@ -33,9 +33,12 @@
 # define			NICK 3
 # define			WHO 2
 # define			ALL 5
+# define			MOVELEFT 89
+# define			MOVERIGHT 90
+# define			MOVEFW 91
 # define			MSG 6
 # define			MOVE (5)
-# define			SEE (7)
+# define			SEE (78)
 # define			STANDARD_MAXPL (75)
 # define			STANDARD_T (26)
 # define			STANDARD_PORT (9999)
@@ -53,7 +56,7 @@
 # define			DROP (7)
 # define			EJECT (8)
 # define			L (5)
-# define			R (6)
+# define			R (9)
 # define			FW (7)
 # define			FORK (9)
 # define			INCANTATION (10)
@@ -115,6 +118,7 @@ typedef struct		s_pl
 	int				r[7];
 	int				action[WACT + 1];
 	int				actionwait;
+	int				alive;
 	char			*bc;
 	int				x;
 	int				y;
@@ -133,6 +137,8 @@ typedef struct		s_team
 {
 	int				nbpl;
 	char			*name;
+	int				*fork;
+	int				forknb;
 }					t_team;
 
 typedef struct		s_egg
@@ -173,8 +179,13 @@ typedef struct		s_env
 	int				*fork;
 	int				forknb;
 	int				tnbpl;
+	time_t			general_timer;
+	char			**debug;
 }					t_env;
 
+void				broadcast___(t_env *e, int i, int pl, int x);
+void				broadcast__(t_env *e, int i, int pl);
+int					broadcast_(t_env *e, int pl);
 int					change_pos(char *buf, t_env *e, int cs);
 void				send_res(int pl, char *tosend, t_env *e);
 int					cmdfound(char *cmd, char *message, int socket_desc);
@@ -220,12 +231,10 @@ int					prepare_take(char *buf, t_env *e, int cs);
 int					take(t_env *e, int pl);
 int					prepare_drop(char *buf, t_env *e, int cs);
 int					drop(t_env *e, int pl);
-int					eject(t_env *e, int pl);
 int					prepare_eject(t_env *e, int cs);
 int					prepare_broadcast(char *buf, t_env *e, int cs);
-int					getdir(double x, double y, t_env *e, int pl);
+int					getdir(double x, double y, int pl, t_env *e);
 int					send_bc_to_pl(int pl, int dir, char *tosend, t_env *e);
-int					broadcast(t_env *e, int pl);
 int					check_ressources(int *ressources, int x, int y, t_env *e);
 int					incantation_(int nbpl, int *ressources, t_env *e,
 					int pl);
@@ -236,15 +245,50 @@ int					prepare_fork(t_env *e, int cs);
 int					connect_nbr(t_env *e, int cs);
 int					foundop(char *tmp, char *buf, t_env *e, int cs);
 int					get_opt_(char *buf, t_env *e, int cs);
-void				client_read(t_env *e, int cs);
-void				g_send_pl(t_pl pl, int i, t_env *e);
-void				g_send_case(t_case c, int x, int y, t_env *e);
-void				g_send_map(t_env *e);
 void				load_function(int action, int pl, t_env *e);
-void				g_send_egg(t_egg egg, int pl, int eggnb, t_env *e);
 void				serv_update(t_env *e);
 void				init_graph(t_env *e, int cs);
 int					fork_player(t_env *e, int pl);
-int					incantation(t_env *e, int pl);
+int					getteams(t_env *e, char **argv, int j);
+void				add_args(t_env *e, char **argv);
+int					getrc(int n, char xy, t_env *e);
+int					move_(t_env *e, int pl, int lrf);
+int					getnumb(char *str, int n, char c);
+char				*check_cases_down(t_env *e, int y, int x, int hm);
+char				*check_cases_up(t_env *e, int y, int x, int hm);
+char				*check_cases_left(t_env *e, int y, int x, int hm);
+char				*check_cases_right(t_env *e, int y, int x, int hm);
+void				aff_map___(char **toaff, t_env *e);
+void				prepare_debug(int i, t_env *e);
+double				square(double nbr);
+void				eject_(int j, int pl, t_env *e);
+void				eject__(int pl, t_env *e);
+int					eject(t_env *e, int pl);
+double				getdir_(double x, double y, double norm, int dir);
+int					check_ressources(int *ressources,
+	int x, int y, t_env *e);
+void				incantation_pl(char **res, char **tograph, t_env *e,
+	int pl);
+int					incantation_(int nbpl, int *ressources, t_env *e,
+	int pl);
+void				g_send_pl(t_pl pl, int i, t_env *e);
+void				g_send_case(t_case c, int x, int y, t_env *e);
+void				g_send_map(t_env *e);
+void				g_send_egg(t_egg egg, int pl, int eggnb, t_env *e);
+void				load_function_(int action, int pl, t_env *e);
+int					getacttime(int action);
+void				init_graph_(t_env *e, int i);
+void				init_food(t_pl *pl);
+void				new_tpl(t_env *e, int cs, int newpl, t_pl *res);
+t_pl				new_pl(t_env *e, t_egg egg, int id);
+void				check_pl_(t_env *e, int i, int tmp, time_t tloc);
+void				check_pl(int *check, t_env *e, int i, int tmp);
+void				check_wpl(t_env *e, int i, int tmp);
+void				rand_generate(t_env *e);
+void				serv_update__(t_env *e, int tmp, int i, time_t tloc);
+void				serv_update_(t_env *e, int tmp, int i, time_t tloc);
+int					connect_graphic(t_env *e, int cs);
+int					search_team(char *buf, t_env *e, int cs);
+void				team_view(t_env *e, int cs);
 
 #endif
