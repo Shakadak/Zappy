@@ -7,11 +7,11 @@
 
 typedef struct		s_env
 {
-	int				map_x;
-	int				map_y;
+	int				x;
+	int				y;
 	int				nb_connect;
 	char			*team;
-	char			name[4];
+	pid_t			id;
 }					t_env;
 
 #endif
