@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 15:39:12 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/23 16:47:40 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/25 14:38:37 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void		pnw(t_env *gfx, char **param)
 	int			i;
 	t_player	*current;
 
+	if (ft_arrlen((void **)param) != 7)
+		return ;
 	current = get_player(gfx, 0, param[6], VOID);
 	current->id = get_id(param[1]);
 	current->x = ft_atoi(param[2]);

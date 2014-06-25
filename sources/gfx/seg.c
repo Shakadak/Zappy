@@ -6,7 +6,7 @@
 /*   By: jibanez <jibanez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/17 16:46:54 by jibanez           #+#    #+#             */
-/*   Updated: 2014/06/18 18:13:42 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/25 14:38:52 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	seg(t_env *gfx, char **param)
 {
+	if (ft_arrlen((void **)param) != 2)
+		return ;
 	gfx->shm.shm->winner = ft_strdup(param[1]);
 }

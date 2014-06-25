@@ -6,7 +6,7 @@
 /*   By: jibanez <jibanez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 17:35:19 by jibanez           #+#    #+#             */
-/*   Updated: 2014/06/17 16:18:25 by jibanez          ###   ########.fr       */
+/*   Updated: 2014/06/25 14:35:51 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	enw(t_env *gfx, char **param)
 	t_player	*egg;
 	char		*team;
 
+if (ft_arrlen((void **)param) != 5)
+	return ;
 	team = get_team(gfx, ft_atoi(param[2]), PLAYER);
 	egg = get_player(gfx, 0, team, VOID);
 	egg->type = EGG;

@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/06/04 12:54:08 by npineau           #+#    #+#              #
-#    Updated: 2014/06/23 16:51:09 by npineau          ###   ########.fr        #
+#    Updated: 2014/06/25 14:11:09 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,4 +56,5 @@ SRCGFX	:=	camera.c \
 			sgt.c \
 			smg.c \
 			suc.c \
-			tna.c
+			tna.c \
+			ft_arrlen.c

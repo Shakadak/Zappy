@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:52:56 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/23 16:50:14 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/25 14:10:47 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,11 @@ void		close_sdl(t_env *gfx);
 int			init_shm(t_env *gfx, int size);
 int			sem_lock(t_env *gfx, int lock);
 int			shm_free(t_env *gfx);
+
+/*
+** ft_arrlen.c
+** return amount of non null pointer in an array.
+*/
+int			ft_arrlen(void **array);
 
 #endif

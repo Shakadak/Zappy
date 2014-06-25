@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 15:29:25 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/18 18:14:21 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/25 14:39:12 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	tna(t_env *gfx, char **param)
 	int		i;
 	int		j;
 
+	if (ft_arrlen((void **)param) != 2)
+		return ;
 	i = 0;
 	while (i < 256)
 	{

@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 15:08:06 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/18 18:13:55 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/25 14:38:57 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	sgt(t_env *gfx, char **param)
 {
+	if (ft_arrlen((void **)param) != 2)
+		return ;
 	gfx->shm.shm->time = ft_atoi(param[1]);
 }

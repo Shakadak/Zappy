@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 17:42:19 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/23 16:48:01 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/25 14:38:41 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ppo(t_env *gfx, char **param)
 	t_player	*current;
 	int			pos[2];
 
+	if (ft_arrlen((void **)param) != 5)
+		return ;
 	current = get_player(gfx, get_id(param[1]), NULL, PLAYER);
 	pos[0] = current->x;
 	pos[1] = current->y;
