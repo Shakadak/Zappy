@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:54:06 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/23 17:24:26 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/25 17:44:23 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int			init_tiles(t_env *gfx)
 {
 	gfx->e.tiles = load_texture(gfx, "img/tiles.png");
 	gfx->e.stones = load_texture(gfx, "img/ministone.png");
-	gfx->e.player = load_texture(gfx, "img/player.png");
+	gfx->e.player = load_texture(gfx, "img/trantorien.png");
 	return (0);
 }
 

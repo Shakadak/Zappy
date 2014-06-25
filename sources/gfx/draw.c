@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:39 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/25 14:53:05 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/25 18:14:25 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,9 @@ void	draw_tiles(t_env *gfx)
 void	draw_board(t_env *gfx)
 {
 	draw_tiles(gfx);
+	ft_putendl("\tdraw_tiles out");
 	draw_entity(gfx);
+	ft_putendl("\tdraw_entity out");
 	draw_menu(gfx);
+	ft_putendl("\tdraw_menu out");
 }
