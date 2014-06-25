@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:52:56 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/25 14:10:47 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/25 16:25:05 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,13 @@ int			shm_free(t_env *gfx);
 ** return amount of non null pointer in an array.
 */
 int			ft_arrlen(void **array);
+
+/*
+** read_from_server.c
+** will be used on some commands too
+*/
+void		do_command(t_env *gfx, char *cmd);
+
+void	new_team(t_env *gfx, char *name);
 
 #endif

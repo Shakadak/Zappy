@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 15:29:25 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/25 14:39:12 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/25 16:37:24 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,13 @@ void	tna(t_env *gfx, char **param)
 		}
 		i++;
 	}
+}
+
+void	new_team(t_env *gfx, char *name)
+{
+	char	*cmd;
+
+	cmd = ft_strjoin("tna ", name);
+	do_command(gfx, cmd);
+	ft_strdel(&cmd);
 }

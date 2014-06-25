@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/16 18:15:07 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/18 18:34:01 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/25 16:37:17 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ t_player	*get_player(t_env *gfx, int id, char *t, t_ptype type)
 				if (type != VOID && current->id == id)
 					return (current);
 			}
-			i++;
+			j++;
 		}
-		j++;
+		i++;
 	}
 	return (NULL);
 }
