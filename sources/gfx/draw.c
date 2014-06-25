@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:39 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/25 18:14:25 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/25 18:59:36 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	render_stone(t_env *gfx, int i, SDL_Rect tile)
 	return ;
 }
 
+//#include <stdio.h>////////////////
+
 void	draw_stones(t_env *gfx, int x, int y, SDL_Rect tile)
 {
 	int	i;
@@ -49,8 +51,18 @@ void	draw_stones(t_env *gfx, int x, int y, SDL_Rect tile)
 	i = 0;
 	while (i < 6)
 	{
+//		ft_putendl("\t\t\t\tcheck gfx->shm.shm[?].stone[i]");
+//		printf("\t\t\t\t\tx: %d, y: %d\n", x, y);
+//		ft_putstr("\t\t\t\t\t");
+//		ft_putnbr(y * gfx->msize[0] + x);
+//		ft_putstr(" vs ");
+//		ft_putnbr(gfx->msize[W] * gfx->msize[H]);
+//		ft_putchar('\n');
 		if (gfx->shm.shm->map[y * gfx->msize[0] + x].stones[i] != 0)
+//		ft_putendl("\t\t\t\tok");
+//		ft_putendl("\t\t\t\trender_stone in");
 			render_stone(gfx, i, tile);
+//		ft_putendl("\t\t\t\trender_stone out");
 		i++;
 	}
 }
@@ -58,7 +70,9 @@ void	draw_stones(t_env *gfx, int x, int y, SDL_Rect tile)
 void	draw_tile(t_env *gfx, SDL_Rect rc[2], int x, int y)
 {
 	SDL_RenderCopy(gfx->e.render, gfx->e.tiles, &rc[0], &rc[1]);
+//	ft_putendl("\t\t\tdraw_stones in");
 	draw_stones(gfx, x, y, rc[1]);
+//	ft_putendl("\t\t\tdraw_stones out");
 }
 
 void	draw_tiles(t_env *gfx)
@@ -73,17 +87,19 @@ void	draw_tiles(t_env *gfx)
 	rc[0].h = 40;
 	rc[1].w = gfx->tile_w + gfx->zoom;
 	rc[1].h = gfx->tile_h + gfx->zoom;
-	min[0] = gfx->camera[0] / gfx->tile_w - 1;
+	min[0] = gfx->camera[0] / gfx->tile_w/* - 1*/;
 	max[0] = (gfx->camera[0] + WIDTH) / rc[1].w;
 	max[1] = (gfx->camera[1] + HEIGHT) / rc[1].h;
 	while (min[0] <= max[0] && min[0] < gfx->msize[0])
 	{
-		min[1] = gfx->camera[1] / gfx->tile_h - 1;
+		min[1] = gfx->camera[1] / gfx->tile_h/* - 1*/;
 		while (min[1] <= max[1] && min[1] < gfx->msize[1])
 		{
 			rc[1].x = min[0] * rc[1].w - gfx->camera[0];
 			rc[1].y = min[1] * rc[1].h - gfx->camera[1];
+//			ft_putendl("\t\tdraw_tile in");
 			draw_tile(gfx, rc, min[0], min[1]);
+//			ft_putendl("\t\tdraw_tile out");
 			min[1]++;
 		}
 		min[0]++;
@@ -93,9 +109,9 @@ void	draw_tiles(t_env *gfx)
 void	draw_board(t_env *gfx)
 {
 	draw_tiles(gfx);
-	ft_putendl("\tdraw_tiles out");
+//	ft_putendl("\tdraw_tiles out");
 	draw_entity(gfx);
-	ft_putendl("\tdraw_entity out");
+//	ft_putendl("\tdraw_entity out");
 	draw_menu(gfx);
-	ft_putendl("\tdraw_menu out");
+//	ft_putendl("\tdraw_menu out");
 }

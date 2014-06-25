@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/23 16:07:26 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/25 18:43:02 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ typedef enum		e_dir
 	WEST = 4,
 }					t_dir;
 
-typedef enum		e_coo
+typedef enum		e_size
 {
-	X,
-	Y
-}					t_coo;
+	W,
+	H
+}					t_size;
 
 typedef struct		s_sdl
 {

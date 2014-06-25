@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/22 16:47:52 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/25 18:09:26 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/25 19:04:19 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	get_player_text(t_env *gfx, t_player *p, SDL_Rect *zone, int tick)
 	zone[0].y = 0;
 	zone[0].h = 69;
 	zone[0].w = 32;
-	zone[1].x = p->x * (gfx->tile_w + gfx->zoom) - gfx->camera[X];
-	zone[1].y = p->y * (gfx->tile_h + gfx->zoom) - gfx->camera[Y];
+	zone[1].x = (p->x + 0.25) * (gfx->tile_w + gfx->zoom) - gfx->camera[W];
+	zone[1].y = (p->y - 0.25) * (gfx->tile_h + gfx->zoom) - gfx->camera[H];
 	zone[1].h = zone[0].h + gfx->zoom;
 	zone[1].w = zone[0].w + gfx->zoom;
 }
