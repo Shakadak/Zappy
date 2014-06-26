@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:52:56 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/26 19:46:01 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 20:32:40 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ void		draw_board(t_env *gfx);
 /*
 ** draw_*.c
 */
-void	draw_entity(t_env *gfx);
-void	draw_player(t_env *gfx, t_player *p);
-void	draw_move(t_env *gfx, t_player *p);
-void	draw_none(t_env *gfx, t_player *p);
-void	get_player_text(t_env *gfx, t_player *p, SDL_Rect *zone, int tick);
-void	get_limit(t_env *gfx, SDL_Rect *limit);
+void		draw_entity(t_env *gfx);
+void		draw_player(t_env *gfx, t_player *p);
+void		draw_move(t_env *gfx, t_player *p);
+void		draw_none(t_env *gfx, t_player *p);
+void		get_player_text(t_env *gfx, t_player *p, SDL_Rect *zone, int tick);
+void		get_limit(t_env *gfx, SDL_Rect *limit);
 /*
 ** event.c
 */
