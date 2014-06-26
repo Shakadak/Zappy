@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:39 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/26 15:23:28 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 18:21:39 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	render_stone(t_env *gfx, int i, SDL_Rect tile)
 
 	rcsrc.w = 8;
 	rcsrc.h = 8;
-	rcsrc.x = 0;
-	rcsrc.y = i * 8;
+	rcsrc.x = i * 8;
+	rcsrc.y = 0;
 	tile.w = 8 + gfx->zoom;
 	tile.h = 8 + gfx->zoom;
 	tile.x += 1 * i % gfx->tile_w;
@@ -55,10 +55,10 @@ void	draw_tiles(t_env *gfx)
 	int			min[2];
 	int			max[2];
 
-	rc[0].x = 80;
-	rc[0].y = 200;
-	rc[0].w = 40;
-	rc[0].h = 40;
+	rc[0].x = 0;
+	rc[0].y = 0;
+	rc[0].w = 64;
+	rc[0].h = 64;
 	rc[1].w = gfx->tile_w + gfx->zoom;
 	rc[1].h = gfx->tile_h + gfx->zoom;
 	min[0] = (gfx->camera[0] - (gfx->tile_w - 1)) / gfx->tile_w;

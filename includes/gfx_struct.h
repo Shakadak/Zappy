@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:05 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/25 18:43:02 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 18:48:22 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@
 
 typedef enum		e_dir
 {
-	NORTH = 1,
-	EAST = 2,
-	SOUTH = 3,
-	WEST = 4,
+	NORTH = 2,
+	EAST = 3,
+	SOUTH = 4,
+	WEST = 1,
 }					t_dir;
 
 typedef enum		e_size

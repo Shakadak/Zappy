@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/26 14:06:06 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 17:52:28 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int		base(char **argv)
 		init_sdl(&gfx);
 		gfx_core(&gfx);
 		close_sdl(&gfx);
+		close(gfx.net.sock);
 	}
 	return (0);
 }
