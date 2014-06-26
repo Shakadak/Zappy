@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:39 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/26 18:21:39 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 19:55:05 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	render_stone(t_env *gfx, int i, SDL_Rect tile)
 	rcsrc.y = 0;
 	tile.w = 8 + gfx->zoom;
 	tile.h = 8 + gfx->zoom;
-	tile.x += 1 * i % gfx->tile_w;
-	tile.y += 1 * i % gfx->tile_h;
+	tile.x += 3 * i % gfx->tile_w;
+	tile.y += 4 * i % gfx->tile_h;
 	SDL_RenderCopy(gfx->e.render, gfx->e.stones, &rcsrc, &tile);
 }
 
