@@ -6,11 +6,24 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:18:15 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/25 08:42:16 by garm             ###   ########.fr       */
+/*   Updated: 2014/06/26 14:09:52 by garm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "client.h"
+
+void	ft_end(t_env *e, char *buf_to_del, t_tcpsock *server, const char *msg)
+{
+	void		*data;
+
+	ft_strdel(&buf_to_del);
+	while ((data = ft_queue_pop(&e->actions)))
+		ft_memdel(&data);
+	while ((data = ft_queue_pop(&e->waits)))
+		ft_memdel(&data);
+	ft_fatal((char *)msg);
+	ftsock_destroy(&server);
+}
 
 void	ft_welcome(t_env *e, t_tcpsock *server)
 {
@@ -18,12 +31,10 @@ void	ft_welcome(t_env *e, t_tcpsock *server)
 	char	**split;
 
 	ft_putendl_fd(e->team, server->sock);
-	get_next_line(server->sock, &recv);
+	if (get_next_line(server->sock, &recv) <= 0)
+		ft_end(e, NULL, server, "not enough space.");
 	if (ft_strequ(recv, "ko"))
-	{
-		ft_strdel(&recv);
-		ft_fatal("bad team");
-	}
+		ft_end(e, recv, server, "bad team");
 	e->nb_connect = ft_atoi(recv);
 	ft_strdel(&recv);
 	get_next_line(server->sock, &recv);
@@ -57,15 +68,9 @@ int		ft_track_target(int numcase, int line, t_env *e)
 	move_side = numcase - e->vision[line].center;
 	counter += ft_push_go_up(move_up, e);
 	if (move_side < 0)
-	{
-		ft_printf("GAUCHE : %i\n", move_side);
 		e->actions = ft_queue_push(e->actions, ft_strdup("gauche"));
-	}
 	else if (move_side > 0)
-	{
-		ft_printf("DROITE : %i\n", move_side);
 		e->actions = ft_queue_push(e->actions, ft_strdup("droite"));
-	}
 	if (move_side != 0)
 		counter++;
 	move_side = ft_abs(move_side);
@@ -100,52 +105,99 @@ int		ft_track(int numcase, t_env *e)
 	return (0);
 }
 
-void	ft_see(char *recv_buf, t_env *e, t_tcpsock *server)
+int		ft_look_for(t_env *e, char **split, t_tcpsock *server, const char *obj)
 {
-	void	*action;
-	char	**split;
+	int		presence;
 	int		i;
 
-	if (e->waits == NULL)
-		ft_fatal("'ok' received, but nothing is in the waitings queue.");
-	action = ft_queue_pop(&e->waits);
-	recv_buf[ft_strlen(recv_buf) - 1] = 0;
-	recv_buf++;
-	split = ft_strsplit(recv_buf, ',');
+	presence = 0;
 	i = 0;
 	while (split[i])
 	{
-		if (strstr(split[i], "nourriture"))
+		if (split[i] && *split[i] && ft_strstr(split[i], obj) != NULL)
 		{
+			presence = 1;
 			if (ft_track(i, e))
 				FD_SET(server->sock, &e->write_fds);
 			break ;
 		}
 		i++;
 	}
-	ft_putendl(recv_buf);
+	return (presence);
+}
+
+void	ft_see(char *recv_buf, t_env *e, t_tcpsock *server)
+{
+	void	*action;
+	char	**split;
+	int		presence;
+
+	if (e->waits == NULL)
+		ft_fatal("'ok' received, but nothing is in the waitings queue.");
+	action = ft_queue_pop(&e->waits);
+	recv_buf[ft_strlen(recv_buf) - 1] = 0;
+	recv_buf++;
+	split = ft_strsplit_strict(recv_buf, ',');
+	presence = 0;
+	if (e->state == STATE_HUNGRY)
+		presence = ft_look_for(e, split, server, "nourriture");
+	ft_split_destroy(split);
+	ft_memdel(&action);
+	if (!presence)
+	{
+		ft_push_go_up(e->level, e);
+		FD_SET(server->sock, &e->write_fds);
+	}
+}
+
+void	ft_inventory(char *recv_buf, t_env *e)
+{
+	void	*action;
+	char	**split;
+
+	if (e->waits == NULL)
+		ft_fatal("'ok' received, but nothing is in the waitings queue.");
+	action = ft_queue_pop(&e->waits);
+	recv_buf[ft_strlen(recv_buf) - 1] = 0;
+	recv_buf++;
+	split = ft_strsplit_strict(recv_buf, ',');
+	e->life = ft_atoi(ft_strchr(split[0], ' ') + 1);
+	if (e->life < 8 && e->state != STATE_HUNGRY)
+	{
+		ft_putendl("STATE : HUNGRY");
+		e->state = STATE_HUNGRY;
+	}
+	else if (e->life > 30 && e->state != STATE_FARM)
+	{
+		ft_putendl("STATE : FARM");
+		e->state = STATE_FARM;
+	}
 	ft_split_destroy(split);
 	ft_memdel(&action);
 }
 
-void	ft_receive_data(char *recv_buf, t_env *e, t_tcpsock *server)
+void	ft_receive_data(char *recv, t_env *e, t_tcpsock *server)
 {
 	void		*data;
 
-	if (ft_strequ(recv_buf, "BIENVENUE"))
+	if (ft_strequ(recv, "BIENVENUE"))
 		ft_welcome(e, server);
-	else if (recv_buf[0] == '{' && ft_strequ(e->waits->tail->data, "voir"))
-		ft_see(recv_buf, e, server);
-	else if (ft_strequ(recv_buf, "ok"))
+	else if (ft_strequ(e->waits->data, "voir"))
+		ft_see(recv, e, server);
+	else if (ft_strequ(e->waits->data, "inventaire"))
+		ft_inventory(recv, e);
+	else if (ft_strequ(recv, "ok"))
 	{
-		ft_putendl("OKOK");
 		data = ft_queue_pop(&e->waits);
 		ft_memdel(&data);
 	}
+	else if (ft_strequ(recv, "mort"))
+		ft_end(e, recv, server, "I'M DEAD !");
 	else
-		ft_printf("UNKNOW DATA : %s\n", recv_buf);
+		ft_printf("UNKNOW DATA : %s\nVALUE SENDED : %s\n", recv, ft_queue_pop(&e->waits));
 	if (e->actions == NULL && e->waits == NULL)
 	{
+		e->actions = ft_queue_push(e->actions, ft_strdup("inventaire"));
 		e->actions = ft_queue_push(e->actions, ft_strdup("voir"));
 		FD_SET(server->sock, &e->write_fds);
 	}
@@ -164,25 +216,15 @@ void	ft_send_data(t_env *e, t_tcpsock *server)
 		if (ft_strequ(action, "voir"))
 			ft_putendl_fd("voir", server->sock);
 		else if (ft_strequ(action, "avance"))
-		{
-			ft_putendl("avance");
 			ft_putendl_fd("avance", server->sock);
-		}
 		else if (ft_strequ(action, "gauche"))
-		{
-			ft_putendl("gauche");
 			ft_putendl_fd("gauche", server->sock);
-		}
 		else if (ft_strequ(action, "droite"))
-		{
-			ft_putendl("droite");
 			ft_putendl_fd("droite", server->sock);
-		}
+		else if (ft_strequ(action, "inventaire"))
+			ft_putendl_fd("inventaire", server->sock);
 		else if (ft_strncmp(action, "prend ", 6) == 0)
-		{
-			ft_putendl("prend");
 			ft_putendl_fd(action, server->sock);
-		}
 	}
 	else
 		ft_fatal("ERROR : NO ACTIONS TO SEND.");
@@ -201,7 +243,7 @@ void	ft_main_loop(t_env *e, t_tcpsock *server)
 		if (FD_ISSET(server->sock, &e->read_fds))
 		{
 			if (get_next_line(server->sock, &recv_buf) <= 0)
-				ft_fatal("SERVER CRASHED.");
+				ft_end(e, recv_buf, server, "SERVER CRASHED !");
 			ft_receive_data(recv_buf, e, server);
 			ft_strdel(&recv_buf);
 			FD_ZERO(&e->read_fds);
@@ -211,7 +253,8 @@ void	ft_main_loop(t_env *e, t_tcpsock *server)
 			if (ft_queue_len(e->waits) < 9)
 			{
 				ft_send_data(e, server);
-				FD_ZERO(&e->write_fds);
+				if (!e->actions)
+					FD_ZERO(&e->write_fds);
 			}
 		}
 	}
@@ -247,6 +290,8 @@ int		main(int argc, char **argv)
 	e.actions = NULL;
 	e.waits = NULL;
 	e.level = 1;
+	e.life = 10;
+	e.state = STATE_HUNGRY;
 	ft_vision_init(&e);
 	server = ftsock_create(FTSOCK_CLIENT, argv[1], ft_atoi(argv[2]));
 	ftsock_connect(server);
