@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:18:15 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/26 14:09:52 by garm             ###   ########.fr       */
+/*   Updated: 2014/06/26 19:00:03 by garm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_welcome(t_env *e, t_tcpsock *server)
 	char	*recv;
 	char	**split;
 
+	sleep(1);
 	ft_putendl_fd(e->team, server->sock);
 	if (get_next_line(server->sock, &recv) <= 0)
 		ft_end(e, NULL, server, "not enough space.");
@@ -161,13 +162,13 @@ void	ft_inventory(char *recv_buf, t_env *e)
 	recv_buf[ft_strlen(recv_buf) - 1] = 0;
 	recv_buf++;
 	split = ft_strsplit_strict(recv_buf, ',');
-	e->life = ft_atoi(ft_strchr(split[0], ' ') + 1);
-	if (e->life < 8 && e->state != STATE_HUNGRY)
+	e->inventory.life = ft_atoi(ft_strchr(split[0], ' ') + 1);
+	if (e->inventory.life < 8 && e->state != STATE_HUNGRY)
 	{
 		ft_putendl("STATE : HUNGRY");
 		e->state = STATE_HUNGRY;
 	}
-	else if (e->life > 30 && e->state != STATE_FARM)
+	else if (e->inventory.life > 30 && e->state != STATE_FARM)
 	{
 		ft_putendl("STATE : FARM");
 		e->state = STATE_FARM;
@@ -213,6 +214,7 @@ void	ft_send_data(t_env *e, t_tcpsock *server)
 	{
 		action = ft_queue_pop(&e->actions);
 		e->waits = ft_queue_push(e->waits, action);
+		sleep(1);
 		if (ft_strequ(action, "voir"))
 			ft_putendl_fd("voir", server->sock);
 		else if (ft_strequ(action, "avance"))
@@ -244,6 +246,7 @@ void	ft_main_loop(t_env *e, t_tcpsock *server)
 		{
 			if (get_next_line(server->sock, &recv_buf) <= 0)
 				ft_end(e, recv_buf, server, "SERVER CRASHED !");
+			ft_printf("RECEIVE : %s\n", recv_buf);
 			ft_receive_data(recv_buf, e, server);
 			ft_strdel(&recv_buf);
 			FD_ZERO(&e->read_fds);
@@ -252,6 +255,8 @@ void	ft_main_loop(t_env *e, t_tcpsock *server)
 		{
 			if (ft_queue_len(e->waits) < 9)
 			{
+				if (e->actions)
+					ft_printf("SENDING : %s\n", e->actions->tail->data);
 				ft_send_data(e, server);
 				if (!e->actions)
 					FD_ZERO(&e->write_fds);
@@ -279,6 +284,38 @@ void	ft_vision_init(t_env *e)
 	ft_raw_init(&e->vision[7], 64, 72, 80);
 }
 
+void	ft_inventory_init(t_env *e)
+{
+	ft_bzero(&e->inventory, sizeof(t_inventory));
+	e->inventory.life = 10;
+}
+
+void	ft_step_init(t_env *e, int level, const char *format)
+{
+	char		**split;
+
+	split = ft_strsplit(format, ' ');
+	e->steps[level].needed_players = ft_atoi(split[0]);
+	e->steps[level].needed_stones.linemate = ft_atoi(split[1]);
+	e->steps[level].needed_stones.deraumere = ft_atoi(split[2]);
+	e->steps[level].needed_stones.sibure = ft_atoi(split[3]);
+	e->steps[level].needed_stones.mendiane = ft_atoi(split[4]);
+	e->steps[level].needed_stones.phiras = ft_atoi(split[5]);
+	e->steps[level].needed_stones.thystame = ft_atoi(split[6]);
+	ft_split_destroy(split);
+}
+
+void	ft_steps_init(t_env *e)
+{
+	ft_step_init(e, 1, "1 1 0 0 0 0 0");
+	ft_step_init(e, 2, "2 1 1 1 0 0 0");
+	ft_step_init(e, 3, "2 2 0 1 0 2 0");
+	ft_step_init(e, 4, "4 1 1 2 0 1 0");
+	ft_step_init(e, 5, "4 1 2 1 3 0 0");
+	ft_step_init(e, 6, "6 1 2 3 0 1 0");
+	ft_step_init(e, 7, "6 2 2 2 2 2 1");
+}
+
 int		main(int argc, char **argv)
 {
 	t_env			e;
@@ -290,7 +327,8 @@ int		main(int argc, char **argv)
 	e.actions = NULL;
 	e.waits = NULL;
 	e.level = 1;
-	e.life = 10;
+	ft_inventory_init(&e);
+	ft_steps_init(&e);
 	e.state = STATE_HUNGRY;
 	ft_vision_init(&e);
 	server = ftsock_create(FTSOCK_CLIENT, argv[1], ft_atoi(argv[2]));

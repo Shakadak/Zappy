@@ -22,15 +22,38 @@ typedef struct		s_raw
 	int				center;
 }					t_raw;
 
+typedef struct		s_stones
+{
+	int				linemate;
+	int				deraumere;
+	int				sibure;
+	int				mendiane;
+	int				phiras;
+	int				thystame;
+}					t_stones;
+
+typedef struct		s_inventory
+{
+	int				life;
+
+}					t_inventory;
+
+typedef struct		s_step
+{
+	int				needed_players;
+	t_stones		needed_stones;
+}					t_step;
+
 typedef struct		s_env
 {
 	int				x;
 	int				y;
 	int				nb_connect;
 	int				level;
-	int				life;
 	char			*team;
 	pid_t			id;
+	t_inventory		inventory;
+	t_step			steps[8];
 	t_queue			*actions;
 	t_queue			*waits;
 	fd_set			write_fds;
