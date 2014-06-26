@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/22 16:16:35 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/23 15:35:22 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 14:07:53 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,26 @@
 
 void	draw_player(t_env *gfx, t_player *p)
 {
-	if (p->action == GET) ;
-	else if (p->action == DROP) ;
-	else if (p->action == INCANT) ;
-	else if (p->action == SUCCESS) ;
-	else if (p->action == FAIL) ;
-	else if (p->action == LAY) ;
-	else if (p->action == DIE) ;
-	else if (p->action == BROADCAST) ;
-	else if (p->action == EXPULSE) ;
+	if (p->action == GET)
+		;
+	else if (p->action == DROP)
+		;
+	else if (p->action == INCANT)
+		;
+	else if (p->action == SUCCESS)
+		;
+	else if (p->action == FAIL)
+		;
+	else if (p->action == LAY)
+		;
+	else if (p->action == DIE)
+		;
+	else if (p->action == BROADCAST)
+		;
+	else if (p->action == EXPULSE)
+		;
 	else if (p->action == MOVE)
 		draw_move(gfx, p);
-	else if (p->action == TURN) ;
 	else
 		draw_none(gfx, p);
 }

@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/22 16:47:52 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/25 19:04:19 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 15:18:15 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	draw_move(t_env *gfx, t_player *p)
 		return ;
 	}
 	dist = ((float)p->time - (float)tick) / (float)(7000 / gfx->shm.shm->time);
-	get_player_text(gfx, p, zone, (tick / 2) % 1000);
+	get_player_text(gfx, p, zone, (tick / 2 + p->id * 10) % 1000);
 	get_limit(gfx, &limit);
 	if (p->x < limit.x || p->x > limit.w || p->y < limit.y || p->y > limit.h)
 		return ;
