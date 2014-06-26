@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/18 18:31:38 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/26 18:36:02 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 19:59:47 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int		allocate_map(t_env *gfx)
 	do_command(gfx, cmds[i++]);
 	gfx->shm.shm->map = mmap(NULL, (gfx->msize[0] * gfx->msize[1]) * CASE_SIZE,
 			PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANON, -1, 0);
+	gfx->shm.shm->time = -1;
 	while (cmds[i])
 		do_command(gfx, cmds[i++]);
 	ft_split_destroy(cmds);
 	ft_bzero(gfx->net.buff, READ_BUFF);
-	gfx->shm.shm->time = -1;
 	return (0);
 }
 

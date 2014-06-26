@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/22 16:47:52 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/26 18:23:52 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 20:03:27 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int		get_dir(int x, int y, int o)
 		if (o == EAST || o == WEST)
 			return (0);
 		else if (o == NORTH)
-			return (1);
-		else
 			return (-1);
+		else
+			return (1);
 	}
 	return (0);
 }
