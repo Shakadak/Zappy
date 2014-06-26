@@ -6,7 +6,7 @@
 /*   By: jibanez <jibanez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/13 17:40:36 by jibanez           #+#    #+#             */
-/*   Updated: 2014/06/19 16:17:11 by jvincent         ###   ########.fr       */
+/*   Updated: 2014/06/26 19:46:19 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int				gfx_net_loop(t_env *gfx)
 		init_loop(gfx);
 		select(gfx->net.sock + 1, &gfx->net.readfds, 0, 0, 0);
 		check_server(gfx);
+		if (clean_up(gfx))
+			exit(clean_up(gfx));
 	}
 	return (0);
 }

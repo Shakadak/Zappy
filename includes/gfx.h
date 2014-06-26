@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:52:56 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/25 16:25:05 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 19:46:01 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ int			ft_arrlen(void **array);
 */
 void		do_command(t_env *gfx, char *cmd);
 
-void	new_team(t_env *gfx, char *name);
+void		new_team(t_env *gfx, char *name);
+
+int			clean_up(t_env *e);
 
 #endif

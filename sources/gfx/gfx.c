@@ -6,10 +6,13 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/02 18:17:54 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/26 17:52:28 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 19:49:22 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <signal.h>
+#include <sys/shm.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include "gfx.h"
 #include "libft.h"
@@ -60,22 +63,26 @@ int		base(char **argv)
 		gfx_core(&gfx);
 		close_sdl(&gfx);
 		close(gfx.net.sock);
+		shmdt(gfx.shm.shm);
+		clean_up(&gfx);
+		kill(pid, 9);
 	}
 	return (0);
 }
 
 int		main(int argc, char **argv)
 {
-	int	exit;
+	int	ex;
 
 	if (argc != 3)
 	{
 		ft_putendl("usage: ./gfx <ip> <port>");
 		return (1);
 	}
+	signal(9, exit);
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 		return (ft_error("SDL_Init failed."));
-	exit = base(argv);
+	ex = base(argv);
 	SDL_Quit();
-	return (exit);
+	return (ex);
 }
