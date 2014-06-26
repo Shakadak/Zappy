@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/18 18:31:38 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/23 17:32:20 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 15:27:29 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,6 @@
 #include <signal.h>
 #include <sys/socket.h>
 #include <sys/mman.h>
-
-void	get_cell_info(t_env *gfx)
-{
-	char	**cmd;
-	int		ret;
-
-	ft_putendl("[get_cell_info] in");
-	ft_bzero(gfx->net.buff, READ_BUFF);
-	ft_putendl(gfx->net.buff);
-	ret = recv(gfx->net.sock, gfx->net.buff, READ_BUFF, 0);
-	char	*tmp;
-	asprintf(&tmp, "[SERVER](%d) : %s\n", ret, gfx->net.buff);
-	ft_putendl(tmp);
-	cmd = ft_strsplit(gfx->net.buff, ' ');
-	bct(gfx, cmd);
-	ft_split_destroy(cmd);
-	ft_putendl("[get_cell_info] out");
-}
-
-int		fill_cells(t_env *gfx)
-{
-	int	i;
-	int	j;
-
-	ft_putendl("[fill_cells] in");
-	j = 0;
-	while (j < gfx->msize[1])
-	{
-		i = 0;
-		while (i < gfx->msize[0])
-		{
-			get_cell_info(gfx);
-			i++;
-		}
-		j++;
-	}
-	ft_putendl("[fill_cells] out");
-	return (0);
-}
-
-int		get_teams(t_env *gfx)
-{
-	char	**cmd;
-	int		ret;
-
-	ret = recv(gfx->net.sock, gfx->net.buff, READ_BUFF, 0);
-	cmd = ft_strsplit(gfx->net.buff, ' ');
-	ft_split_destroy(cmd);
-	return (0);
-}
 
 int		allocate_map(t_env *gfx)
 {
@@ -85,11 +35,9 @@ int		get_map_info(t_env *gfx)
 
 	ret = recv(gfx->net.sock, gfx->net.buff, READ_BUFF, 0);
 	gfx->net.buff[ret] = '\0';
-	printf("[SERVER] : %s\n", gfx->net.buff);
 	send(gfx->net.sock, "GRAPHIC\n", 8, 0);
 	ret = recv(gfx->net.sock, gfx->net.buff, READ_BUFF, 0);
 	gfx->net.buff[ret] = '\0';
-	printf("[SERVER] : %s\n", gfx->net.buff);
 	allocate_map(gfx);
 	return (0);
 }

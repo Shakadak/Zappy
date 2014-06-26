@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/25 14:07:06 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/25 15:25:08 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 15:25:59 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ int	ft_arrlen(void **array)
 
 	len = 0;
 	while (*array++)
-		len ++;
+		len++;
 	return (len);
 }

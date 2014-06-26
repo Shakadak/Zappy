@@ -6,12 +6,11 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/22 16:16:35 by npineau           #+#    #+#             */
-/*   Updated: 2014/06/26 14:07:53 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 15:25:07 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gfx.h"
-
 
 void	draw_player(t_env *gfx, t_player *p)
 {

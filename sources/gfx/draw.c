@@ -6,7 +6,7 @@
 /*   By: jvincent <jvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/04 17:53:39 by jvincent          #+#    #+#             */
-/*   Updated: 2014/06/26 15:14:04 by npineau          ###   ########.fr       */
+/*   Updated: 2014/06/26 15:23:28 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void	draw_tile(t_env *gfx, SDL_Rect rc[2], int x, int y)
 	SDL_RenderCopy(gfx->e.render, gfx->e.tiles, &rc[0], &rc[1]);
 	draw_stones(gfx, x, y, rc[1]);
 }
-
-#include <stdio.h>
 
 void	draw_tiles(t_env *gfx)
 {
